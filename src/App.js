@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PreviewPage from "./pages/PreviewPage";
+
+const ref = React.createRef();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <PDFViewer width="100%" height="1000">
+    /* <Quixote /> */
+    // </PDFViewer>
+
+    <div ref={ref}>
+      <PreviewPage />
     </div>
   );
 }
