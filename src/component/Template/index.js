@@ -33,33 +33,60 @@ function Template() {
           <span className="font-bold">Isi dengan huruf cetak</span>{" "}
           <span className="font-italic">/ Fill In with capital letter</span>
           <br />
-          <span className="font-bold">Beri tanda ✓ pada kotak pilihan</span>{" "}
+          <span className="font-bold">
+            Beri tanda ✓ pada kotak pilihan
+          </span>{" "}
           <span className="font-italic">/ Please tick in appropriate box</span>
-
           <div className="information">
             <div className="date">
-              <input type="text" className="input-date"/>
-              <input type="text" className="input-date"/>
-              <input type="text" className="input-date"/>
+              <input type="text" className="input-date" />
+              <input type="text" className="input-date" />
+              <input type="text" className="input-date" />
             </div>
             <div className="fpb-info">
               <table>
                 <tr>
+                  <td>No. FPB :</td>
                   <td>
-                    No. FPB :
-                  </td>
-                  <td>
-                  <input type="text" />
+                    <input type="text" className="input-no" />
                   </td>
                 </tr>
                 <tr>
+                  <td>No. CID :</td>
                   <td>
-                    No. CID :
-                  </td>
-                  <td>
-                  <input type="text" />
+                    <input type="text" className="input-no" />
                   </td>
                 </tr>
+              </table>
+            </div>
+          </div>
+          <div className="field">
+            <div className="type-of-order">
+              <table>
+                <thead>
+                  <th colSpan="2">
+                  <span className="font-bold">JENIS PERMINTAAN</span>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>
+                      Jenis permintaan / Type of Order
+                      </p>
+                    </td>
+                    <td>
+                      <input type="checkbox" id="NewInstalation" />
+                      <label htmlFor="NewInstalation">New Instalation</label>
+                      <input type="checkbox" />
+                      <label htmlFor="Upgrade">Upgrade</label>
+                      <input type="checkbox" />
+                      <label htmlFor="Upgrade">Down grade</label>
+                      <input type="checkbox" />
+                      <label htmlFor="Upgrade">Renewal</label>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

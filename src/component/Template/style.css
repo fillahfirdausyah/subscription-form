@@ -1,3 +1,12 @@
+input:focus {
+    outline: none;
+}
+
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -46,9 +55,39 @@ section .section1 {
 }
 
 .input-date {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+
+.input-no {
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    border: 1px dotted;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.field .type-of-order input {
     width: 20px;
     height: 20px;
-    margin-right: 30px;
+}
+
+.type-of-order table {
+    border: 1px solid black;
+}
+
+.type-of-order table thead {
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+.type-of-order table p {
+    font-size: 13px;
 }
 
 /* 612px x 792px is our default size of a PDF */
