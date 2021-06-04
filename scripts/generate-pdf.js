@@ -10,8 +10,9 @@ const puppeteer = require("puppeteer");
   await page.pdf({
     path: "./react.pdf", // path (relative to CWD) to save the PDF to.
     printBackground: true, // print background colors
-    width: "612px", // match the css width and height we set for our PDF
-    height: "792px",
+    // width: "25cm", // match the css width and height we set for our PDF
+    // height: "792px",
+    format: "a4",
   });
   await browser.close();
 })();

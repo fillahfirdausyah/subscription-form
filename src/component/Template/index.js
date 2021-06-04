@@ -39,7 +39,7 @@ function Template() {
           <span className="font-italic">/ Please tick in appropriate box</span>
           <div className="information">
             <div className="date">
-              <input type="text" className="input-date" />
+              <input type="date" className="input-date" />
               <input type="text" className="input-date" />
               <input type="text" className="input-date" />
             </div>
@@ -65,15 +65,13 @@ function Template() {
               <table>
                 <thead>
                   <th colSpan="2">
-                  <span className="font-bold">JENIS PERMINTAAN</span>
+                    <span className="font-bold">JENIS PERMINTAAN</span>
                   </th>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <p>
-                      Jenis permintaan / Type of Order
-                      </p>
+                      <p>Jenis permintaan / Type of Order</p>
                     </td>
                     <td>
                       <input type="checkbox" id="NewInstalation" />
@@ -84,6 +82,231 @@ function Template() {
                       <label htmlFor="Upgrade">Down grade</label>
                       <input type="checkbox" />
                       <label htmlFor="Upgrade">Renewal</label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="customer-information">
+              <table>
+                <thead>
+                  <th colSpan="2">
+                    <span className="font-bold">
+                      INFORMASI PERUSAHAAN PELANGGAN
+                    </span>{" "}
+                    <span className="font-italic">/ Customer Information</span>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>Nama Perusahaan /</p>{" "}
+                      <p className="font-italic">Company Name</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Group Perusahaan /</p>{" "}
+                      <p className="font-italic">Company Group</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Jenis Usaha /</p>{" "}
+                      <p className="font-italic">Type of Business</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Alamat /</p> <p className="font-italic">Address</p>
+                    </td>
+                    <td>
+                      <textarea name="" id="" cols="60" rows="5"></textarea>
+                      <tr>
+                        <td>
+                          <input type="text" className="input-city" />
+                          <br />
+                          <p>Kota /</p> <p className="font-italic">City</p>
+                        </td>
+                        <td>
+                          <input type="text" />
+                          <br />
+                          <p>Kode Pos /</p>{" "}
+                          <p className="font-italic">Zip Code</p>
+                        </td>
+                      </tr>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Provinsi /</p> <p className="font-italic">Province</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Alamat Situs /</p>{" "}
+                      <p className="font-italic">Situs Address</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Alamat Email /</p>{" "}
+                      <p className="font-italic">Email Address</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>NPWP /</p>{" "}
+                      <p className="font-italic">Tax Registered Number</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Telepone /</p> <p className="font-italic">Phone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                      <br />
+                      <p>Kode Area / </p>{" "}
+                      <p className="font-italic">Area Code</p>
+                      {" | "}
+                      <p>Nomor / </p> <p className="font-italic">Number</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Fax /</p> <p className="font-italic">Phone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                      <br />
+                      <p>Kode Area / </p>{" "}
+                      <p className="font-italic">Area Code</p>
+                      {" | "}
+                      <p>Nomor / </p> <p className="font-italic">Number</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="authorized-person">
+              <div className="section1">
+                <p>
+                  FORMULIR PENDAFTARAN BERLANGGANAN (Subscription Form)
+                  <br />
+                  SOFTWARE & INTERNET SERVICE PROVIDER
+                </p>
+              </div>
+              <table>
+                <thead>
+                  <th colSpan="2">
+                    <span className="font-bold">
+                      INFORMASI PERUSAHAAN PELANGGAN
+                    </span>{" "}
+                    <span className="font-italic">/ Customer Information</span>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>Nama /</p> <p className="font-italic"> Name</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Tempat, Tanggal Lahir /</p>{" "}
+                      <p className="font-italic">Place, Date of Birth</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Jabatan /</p> <p className="font-italic">Position</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Telepone /</p> <p className="font-italic">Phone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                      <br />
+                      <p>Kode Area / </p>{" "}
+                      <p className="font-italic">Area Code</p>
+                      {" | "}
+                      <p>Nomor / </p> <p className="font-italic">Number</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Fax /</p> <p className="font-italic">Phone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                      <br />
+                      <p>Kode Area / </p>{" "}
+                      <p className="font-italic">Area Code</p>
+                      {" | "}
+                      <p>Nomor / </p> <p className="font-italic">Number</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Alamat Email /</p>{" "}
+                      <p className="font-italic">Email Address</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="billing-address">
+              <table>
+                <thead>
+                  <th colSpan="2">
+                    <span className="font-bold">
+                      ALAMAT PENAGIHAN
+                    </span>{" "}
+                    <span className="font-italic">/ Billing Address</span>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      
                     </td>
                   </tr>
                 </tbody>
