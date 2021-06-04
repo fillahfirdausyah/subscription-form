@@ -223,9 +223,9 @@ function Template() {
                 <thead>
                   <th colSpan="2">
                     <span className="font-bold">
-                      INFORMASI PERUSAHAAN PELANGGAN
+                      PENANGGUNG JAWAB PERUSAHAAN
                     </span>{" "}
-                    <span className="font-italic">/ Customer Information</span>
+                    <span className="font-italic">/ Authorized Person</span>
                   </th>
                 </thead>
                 <tbody>
@@ -269,15 +269,27 @@ function Template() {
                   </tr>
                   <tr>
                     <td>
-                      <p>Fax /</p> <p className="font-italic">Phone</p>
+                      <p>Kartu Identitas /</p>{" "}
+                      <p className="font-italic">ID Card</p>
+                    </td>
+                    <td className="id-card">
+                      <input type="checkbox" />
+                      <label htmlFor="NewInstalation">KTP</label>
+                      <input type="checkbox" />
+                      <label htmlFor="Upgrade">KIM_S</label>
+                      <input type="checkbox" />
+                      <label htmlFor="Upgrade">SIM</label>
+                      <input type="checkbox" />
+                      <label htmlFor="Upgrade">PASPOR</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Masa Berlaku /</p>{" "}
+                      <p className="font-italic">Valid Until</p>
                     </td>
                     <td>
                       <input type="text" />
-                      <br />
-                      <p>Kode Area / </p>{" "}
-                      <p className="font-italic">Area Code</p>
-                      {" | "}
-                      <p>Nomor / </p> <p className="font-italic">Number</p>
                     </td>
                   </tr>
                   <tr>
@@ -297,16 +309,122 @@ function Template() {
               <table>
                 <thead>
                   <th colSpan="2">
-                    <span className="font-bold">
-                      ALAMAT PENAGIHAN
-                    </span>{" "}
+                    <span className="font-bold">ALAMAT PENAGIHAN</span>{" "}
                     <span className="font-italic">/ Billing Address</span>
                   </th>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      
+                      <textarea
+                        name=""
+                        id=""
+                        style={{ width: "90%", height: "100px" }}
+                      ></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="financial-authorized-person">
+              <table>
+                <thead>
+                  <th colSpan="2">
+                    <span className="font-bold">
+                      PENANGGUNG JAWAB KEUANGAN
+                    </span>{" "}
+                    <span className="font-italic">/ Financial Authorized Person</span>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>Nama /</p> <p className="font-italic"> Name</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Bagian /</p> <p className="font-italic">Departement</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Jabatan /</p> <p className="font-italic">Position</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Telepone /</p> <p className="font-italic">Phone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                      <br />
+                      <p>Kode Area / </p>{" "}
+                      <p className="font-italic">Area Code</p>
+                      {" | "}
+                      <p>Nomor / </p> <p className="font-italic">Number</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Fax /</p> <p className="font-italic">Phone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                      <br />
+                      <p>Kode Area / </p>{" "}
+                      <p className="font-italic">Area Code</p>
+                      {" | "}
+                      <p>Nomor / </p> <p className="font-italic">Number</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Handphone</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Alamat Email /</p>{" "}
+                      <p className="font-italic">Email Address</p>
+                    </td>
+                    <td>
+                      <input type="text" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="billing-address">
+              <table>
+                <thead>
+                  <th colSpan="2">
+                    <span className="font-bold">ALAMAT PENAGIHAN</span>{" "}
+                    <span className="font-italic">/ Billing Address</span>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <textarea
+                        name=""
+                        id=""
+                        style={{ width: "90%", height: "90px" }}
+                      ></textarea>
                     </td>
                   </tr>
                 </tbody>

@@ -121,6 +121,18 @@ table textarea {
     width: 250px;
 }
 
+.billing-address, .financial-authorized-person {
+    margin-top: 20px;
+}
+
+.id-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 200px;
+    margin-top: 10px;
+}
+
 /* 612px x 792px is our default size of a PDF */
 .pdf {
     /* width: 612px; */
