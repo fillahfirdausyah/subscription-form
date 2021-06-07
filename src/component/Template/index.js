@@ -276,7 +276,7 @@ function Template() {
                       <input type="checkbox" />
                       <label htmlFor="NewInstalation">KTP</label>
                       <input type="checkbox" />
-                      <label htmlFor="Upgrade">KIM_S</label>
+                      <label htmlFor="Upgrade">KIM-S</label>
                       <input type="checkbox" />
                       <label htmlFor="Upgrade">SIM</label>
                       <input type="checkbox" />
@@ -534,7 +534,7 @@ function Template() {
                       <p>Jenis Layanan /</p>{" "}
                       <p className="font-italic">Kind of Services</p>
                     </td>
-                    <td className="services">
+                    <td className="services" colSpan="2">
                       <input type="checkbox" id="internet" />
                       <label htmlFor="internet">Internet</label>
                       <input type="checkbox" />
@@ -542,7 +542,7 @@ function Template() {
                       <input type="checkbox" />
                       <label htmlFor="Upgrade">VPS</label>
                       <input type="checkbox" />
-                      <label htmlFor="Upgrade">SOFTWARE AS SERVICE</label>
+                      <label htmlFor="Upgrade" className="label-upgrade"><p>SOFTWARE AS SERVICE</p></label>
                     </td>
                   </tr>
                   <tr>

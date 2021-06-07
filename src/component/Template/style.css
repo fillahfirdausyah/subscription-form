@@ -9,6 +9,8 @@ textarea:focus {
 [type="checkbox"]
 {
     vertical-align:middle;
+    width: 18px;
+    height: 18px;
 }
 
 header {
@@ -137,9 +139,9 @@ table textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 80px;
     /* margin-top: 10px; */
-}
+}  
 
 .sign {
     display: grid;
@@ -172,11 +174,6 @@ table textarea {
     display: grid;
     grid-template-columns: auto auto;
     margin-top: 10px;
-}
-
-.inp input {
-    width: 20px;
-    height: 20px;
 }
 
 
