@@ -8,7 +8,7 @@ const puppeteer = require("puppeteer");
   });
   await page.emulateMediaType("screen");
   await page.pdf({
-    path: "./react.pdf", // path (relative to CWD) to save the PDF to.
+    path: "./laporan.pdf", // path (relative to CWD) to save the PDF to.
     printBackground: true, // print background colors
     // width: "25cm", // match the css width and height we set for our PDF
     // height: "792px",

@@ -121,7 +121,7 @@ table textarea {
     width: 250px;
 }
 
-.billing-address, .financial-authorized-person {
+.billing-address, .financial-authorized-person, .services-order, .instalation-address, .subscription-fee, .undertaking, .filled-by {
     margin-top: 20px;
 }
 
@@ -132,6 +132,53 @@ table textarea {
     margin-right: 200px;
     margin-top: 10px;
 }
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
+    /* margin-top: 10px; */
+}
+
+.sign {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* grid-column: auto auto; */
+}
+
+.sign input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px dotted;
+}
+
+.sign .line-pt-buana, .sign .line-pt {
+    margin-top: 80px;
+}
+
+.filled-by table.filled-table thead {
+    background-color: #D9D9D9;
+    color: black;
+    text-align: left;
+}
+
+.dokumen {
+    margin-top: 10px;
+}
+
+.input-document {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 10px;
+}
+
+.inp input {
+    width: 20px;
+    height: 20px;
+}
+
 
 /* 612px x 792px is our default size of a PDF */
 .pdf {
