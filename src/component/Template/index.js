@@ -4,7 +4,8 @@ import "./style.css";
 // Image
 import Logo from "../../assets/BuanaLintas.png";
 
-function Template() {
+function Template(props) {
+
   return (
     <div className="pdf">
       <header>
@@ -48,7 +49,7 @@ function Template() {
                 <tr>
                   <td>No. FPB :</td>
                   <td>
-                    <input type="text" className="input-no" />
+                    <input type="text" className="input-no" value={props.info}/>
                   </td>
                 </tr>
                 <tr>

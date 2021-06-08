@@ -1,11 +1,31 @@
-import React from "react";
-import './style.css'
+import { React, useRef } from "react";
+import Template from "../Template";
+import "./style.css";
 
-function Form() {
 
-    const prosesHandler = () => {
-        console.log('berhasil')
-    }
+function Form(props) {
+  const tgglRef = useRef();
+  const noFpbRef = useRef();
+  const noCidRef = useRef();
+
+  const prosesHandler = (e) => {
+    e.preventDefault();
+
+    const tggl = tgglRef.current.value;
+    const noFpb = noFpbRef.current.value;
+    const noCid = noCidRef.current.value;
+
+    const data = {
+      info: {
+        tggl: tggl,
+        noFpb: noFpb,
+        noCid: noCid,
+      }
+    };
+
+    <Template info={data} />
+    console.log(data);
+  };
 
   return (
     <div className="main mt-5">
@@ -18,19 +38,34 @@ function Form() {
                 <label for="date" class="form-label">
                   Tanggal
                 </label>
-                <input type="date" class="form-control" id="date" />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  ref={tgglRef}
+                />
               </div>
               <div class="mb-3">
                 <label for="no-fpb" class="form-label">
                   No. FPB
                 </label>
-                <input type="text" class="form-control" id="no-fpb" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="no-fpb"
+                  ref={noFpbRef}
+                />
               </div>
               <div class="mb-3">
                 <label for="no-cid" class="form-label">
                   No. CID
                 </label>
-                <input type="text" class="form-control" id="no-cid" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="no-cid"
+                  ref={noCidRef}
+                />
               </div>
             </div>
           </div>
