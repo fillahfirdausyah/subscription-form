@@ -1,0 +1,20 @@
+.card-custom {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.bg-dark-custom {
+    background-color: #16365C !important;
+}
+
+table.main-page {
+    border: none;
+}
+
+.form-other {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    background-color: #16365C;
+    border-bottom: 1px white dotted;
+}
