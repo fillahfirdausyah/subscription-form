@@ -3,6 +3,8 @@ import PreviewPage from "./pages/PreviewPage";
 import MainPage from "./pages/MainPage";
 import PhonePage from "./pages/PhonePage";
 import { Switch, Route } from "react-router-dom";
+import { DataProvider } from "./Context/DataContext";
+import { DataContext } from './Context/DataContext'
 
 function App() {
   const [layar, setLayar] = useState(window.innerWidth);
@@ -21,14 +23,16 @@ function App() {
   return (
     <div>
       {layar > 768 ? (
-        <Switch>
-          <Route path="/preview">
-            <PreviewPage />
-          </Route>
-          <Route path="/">
-            <MainPage />
-          </Route>
-        </Switch>
+        <DataProvider>
+          <Switch>
+            <Route path="/preview">
+              <PreviewPage />
+            </Route>
+            <Route path="/">
+              <MainPage />
+            </Route>
+          </Switch>
+        </DataProvider>
       ) : (
         <PhonePage />
       )}

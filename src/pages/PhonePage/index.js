@@ -8,7 +8,7 @@ function PhonePage() {
         <div class="card-header">Informasi</div>
         <div class="card-body">
             <p className="card-text">
-                Anda Membuka di Layar Handphone silahkan buka dilayar Laptop atau Komputer
+                Anda membuka di device yang kecil, silahkan buka di Laptop atau Komputer
             </p>
         </div>
       </div>

@@ -1,9 +1,15 @@
-import { React, useRef } from "react";
-import Template from "../Template";
+import { React, useRef, useEffect, useState } from "react";
+import { useHistory } from "react-router";
+import {DataContext} from '../../Context/DataContext'
 import "./style.css";
 
 
 function Form(props) {
+
+  const [data, setData] = useState({});
+
+  const history = useHistory()
+
   const tgglRef = useRef();
   const noFpbRef = useRef();
   const noCidRef = useRef();
@@ -15,7 +21,7 @@ function Form(props) {
     const noFpb = noFpbRef.current.value;
     const noCid = noCidRef.current.value;
 
-    const data = {
+    const newData = {
       info: {
         tggl: tggl,
         noFpb: noFpb,
@@ -23,8 +29,10 @@ function Form(props) {
       }
     };
 
-    <Template info={data} />
-    console.log(data);
+    setData(newData)
+    localStorage.setItem('data', JSON.stringify(data))
+
+    history.replace('/preview')
   };
 
   return (

@@ -1,10 +1,29 @@
-import React from "react";
+import { React, useContext, useState, useEffect } from "react";
+import { DataContext } from "../../Context/DataContext";
 import "./style.css";
 
 // Image
 import Logo from "../../assets/BuanaLintas.png";
 
 function Template(props) {
+  const [data, setData] = useState({
+    info: {
+      tggl: "",
+      noFpb: "",
+      noCid: "",
+    }
+  });
+
+  useEffect(() => {
+    const json = localStorage.getItem("data");
+    const savedData = JSON.parse(json);
+
+    if (savedData) {
+      setData(savedData);
+    }
+  }, []);
+
+  console.log(data);
 
   return (
     <div className="pdf">
@@ -40,22 +59,20 @@ function Template(props) {
           <span className="font-italic">/ Please tick in appropriate box</span>
           <div className="information">
             <div className="date">
-              <input type="date" className="input-date" />
-              <input type="text" className="input-date" />
-              <input type="text" className="input-date" />
+              <input type="text" value={data.info.tggl} disabled/>
             </div>
             <div className="fpb-info">
               <table>
                 <tr>
                   <td>No. FPB :</td>
                   <td>
-                    <input type="text" className="input-no" value={props.info}/>
+                    <input type="text" className="input-no" value={data.info.noFpb} disabled/>
                   </td>
                 </tr>
                 <tr>
                   <td>No. CID :</td>
                   <td>
-                    <input type="text" className="input-no" />
+                    <input type="text" className="input-no" value={data.info.noCid} disabled/>
                   </td>
                 </tr>
               </table>
@@ -543,7 +560,9 @@ function Template(props) {
                       <input type="checkbox" />
                       <label htmlFor="Upgrade">VPS</label>
                       <input type="checkbox" />
-                      <label htmlFor="Upgrade" className="label-upgrade"><p>SOFTWARE AS SERVICE</p></label>
+                      <label htmlFor="Upgrade" className="label-upgrade">
+                        <p>SOFTWARE AS SERVICE</p>
+                      </label>
                     </td>
                   </tr>
                   <tr>
@@ -814,16 +833,22 @@ function Template(props) {
                   </span>
                   <div className="input-document">
                     <div className="inp">
-                    <input type="checkbox" id="internet" />
-                    <label htmlFor="internet">Fotokopi KTP / Paspor / Copy of ID / Passport</label>
+                      <input type="checkbox" id="internet" />
+                      <label htmlFor="internet">
+                        Fotokopi KTP / Paspor / Copy of ID / Passport
+                      </label>
                     </div>
                     <div className="inp">
-                    <input type="checkbox" id="internet" />
-                    <label htmlFor="internet">Surat Kuasa (apabila dikuasakan)</label>
+                      <input type="checkbox" id="internet" />
+                      <label htmlFor="internet">
+                        Surat Kuasa (apabila dikuasakan)
+                      </label>
                     </div>
                     <div className="inp">
-                    <input type="checkbox" id="internet" />
-                    <label htmlFor="internet">Fotokopi NPWP / Copy of Tax Registered Number</label>
+                      <input type="checkbox" id="internet" />
+                      <label htmlFor="internet">
+                        Fotokopi NPWP / Copy of Tax Registered Number
+                      </label>
                     </div>
                   </div>
                 </div>
