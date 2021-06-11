@@ -1,20 +1,19 @@
 import { React, useEffect, useRef, useState } from "react";
-import { useHistory } from "react-router";
-import Template from "../Template";
-import { DataContext } from "../../Context/DataContext";
 import DoneIcon from "@material-ui/icons/Done";
-import VisibilityIcon from "@material-ui/icons/Visibility";
 import Logo from '../../assets/BuanaLintas.png'
 import "./style.css";
+import InformasiPerusahaan from "./parts/InformasiPerusahaan";
 
 function Form(props) {
   const [data, setData] = useState({});
   const [ptName, setPtName] = useState('')
   const [notify, setNotify] = useState(false);
+  const [infoPerusahaan, setInfoPerusahaan] = useState({})
 
-  let haha = new Date()
-  let date = ("0" + haha.getDate()).slice(-2)
-  console.log(date)
+  const senDataToParent = (index) => {
+    console.log(index)
+    setInfoPerusahaan(index)
+  }
 
   // Data Structure
   // Info Ref
@@ -24,12 +23,12 @@ function Form(props) {
   // Jenis Permintaan Ref
   const typeOfRef = useRef();
   // Informasi Perusahaan Pelanggan
-  const namaPerusahaanRef = useRef();
-  const groupPerusahaanRef = useRef();
-  const jenisUsahaRef = useRef();
-  const alamatRef = useRef();
-  const kotaRef = useRef();
-  const kodePosRef = useRef();
+  // const namaPerusahaanRef = useRef();
+  // const groupPerusahaanRef = useRef();
+  // const jenisUsahaRef = useRef();
+  // const alamatRef = useRef();
+  // const kotaRef = useRef();
+  // const kodePosRef = useRef();
 
   const ptNamehandler = (e) => {
     setPtName(e.target.value)
@@ -43,14 +42,14 @@ function Form(props) {
     const noFpb = noFpbRef.current.value;
     const noCid = noCidRef.current.value;
     // Jenis Permintaan
-    const typeOf = typeOfRef.current.value;
+    const typeOf = typeOfRef.current.checked;
     // Informasi Perusahaan
-    const namaPerusahaan = namaPerusahaanRef.current.value;
-    const groupPerusahaan = groupPerusahaanRef.current.value;
-    const jenisUsaha = jenisUsahaRef.current.value;
-    const alamat = alamatRef.current.value;
-    const kota = kotaRef.current.value;
-    const kodePos = kodePosRef.current.value;
+    // const namaPerusahaan = namaPerusahaanRef.current.value;
+    // const groupPerusahaan = groupPerusahaanRef.current.value;
+    // const jenisUsaha = jenisUsahaRef.current.value;
+    // const alamat = alamatRef.current.value;
+    // const kota = kotaRef.current.value;
+    // const kodePos = kodePosRef.current.value;
 
     const newData = {
       info: {
@@ -58,22 +57,20 @@ function Form(props) {
         noFpb,
         noCid,
       },
-      company: {
-        namaPerusahaan,
-        groupPerusahaan,
-        jenisUsaha,
-        alamat,
-        kota,
-        kodePos,
+      tyOfOrder: {
+        typeOf
       },
+      // company: {
+      //   namaPerusahaan,
+      //   groupPerusahaan,
+      //   jenisUsaha,
+      //   alamat,
+      //   kota,
+      //   kodePos,
+      // },
     };
-    console.log(data);
-    setData(newData);
+    console.log(newData);
   };
-
-  useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
-  }, [data]);
 
   return (
     <div className="main mt-5">
@@ -134,7 +131,7 @@ function Form(props) {
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        value=""
+                        value="New Installation"
                         id="new-instalation"
                         ref={typeOfRef}
                       />
@@ -146,7 +143,7 @@ function Form(props) {
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        value=""
+                        value="Upgrade"
                         id="upgrade"
                         ref={typeOfRef}
                       />
@@ -158,7 +155,7 @@ function Form(props) {
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        value=""
+                        value="Down Grade"
                         id="down-grade"
                         ref={typeOfRef}
                       />
@@ -170,7 +167,7 @@ function Form(props) {
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        value=""
+                        value="Renewal"
                         id="renewal"
                         ref={typeOfRef}
                       />
@@ -197,163 +194,10 @@ function Form(props) {
           </div>
 
           {/* Informasi Perusahaan Pelanggan */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
-            <div class="card-header">Informasi Perusahaan Pelanggan</div>
-            <div class="card-body">
-              <div class="mb-3">
-                <label for="nama-perusahaan" class="form-label">
-                  Nama Perusahaan
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="nama-perusahaan"
-                  ref={namaPerusahaanRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="group-perusahaan" class="form-label">
-                  Group Perusahaan
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="group-perusahaan"
-                  ref={groupPerusahaanRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  Jenis Usaha
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="alamat" class="form-label">
-                  Alamat
-                </label>
-                <textarea
-                  class="form-control"
-                  id="alamat"
-                  rows="3"
-                  ref={alamatRef}
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <div className="row">
-                  <div className="col-6">
-                    <label for="kota" class="form-label">
-                      Kota
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      class="form-control"
-                      id="kota"
-                      ref={kotaRef}
-                    />
-                  </div>
-                  <div className="col-6">
-                    <label for="kota" class="form-label">
-                      Kode Pos
-                    </label>
-                    <input
-                      required
-                      type="number"
-                      class="form-control"
-                      id="kota"
-                      ref={kodePosRef}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  Provinsi
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  Alamat Situs
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  Alamat Email
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  NPWP
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  Telephone
-                </label>
-                <input
-                  required
-                  type="text"
-                  placeholder="Kode Area / Nomor"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jenis-usaha" class="form-label">
-                  Fax
-                </label>
-                <input
-                  required
-                  type="text"
-                  placeholder="Kode Area / Nomor"
-                  class="form-control"
-                  id="jenis-usaha"
-                  ref={jenisUsahaRef}
-                />
-              </div>
-            </div>
-          </div>
+          <InformasiPerusahaan senDataToParent={senDataToParent}/>
 
           {/* Penanggung Jawab Perusahaan */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Penanggung Jawab Perusahaan</div>
             <div class="card-body">
               <div class="mb-3">
@@ -519,10 +363,10 @@ function Form(props) {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Penanggung Jawab Keuangan */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Penanggung Jawab Keuangan</div>
             <div class="card-body">
               <div class="mb-3">
@@ -600,10 +444,10 @@ function Form(props) {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Alamat Penagihan */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Alamat Penagihan</div>
             <div className="card-body">
               <div class="mb-3">
@@ -615,10 +459,10 @@ function Form(props) {
                 ></textarea>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Penanggung Jawab Teknis */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Penanggung Jawab Teknis</div>
             <div className="card-body">
               <div class="mb-3">
@@ -708,10 +552,10 @@ function Form(props) {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Layanan yang diminta */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Layanan Yang Diminta</div>
             <div className="card-body">
               <div class="mb-3">
@@ -802,10 +646,10 @@ function Form(props) {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Alamat Instalasi */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Alamat Instalasi</div>
             <div className="card-body">
               <div class="mb-3">
@@ -817,10 +661,10 @@ function Form(props) {
                 ></textarea>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Biaya Berlanggana */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Biaya Berlangganan</div>
             <div className="card-body">
               <div class="mb-3">
@@ -850,10 +694,10 @@ function Form(props) {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Tanda Tangan */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
+          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Tanda Tangan</div>
             <div className="card-body">
               <div class="mb-3">
@@ -894,7 +738,7 @@ function Form(props) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <button type="submit" className="btn-proses">
             <DoneIcon />
