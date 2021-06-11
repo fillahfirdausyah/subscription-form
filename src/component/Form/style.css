@@ -1,20 +1,48 @@
 .card-custom {
-    width: 60%;
-    margin: 0 auto;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .bg-dark-custom {
-    background-color: #16365C !important;
+  background-color: #16365c !important;
 }
 
 table.main-page {
-    border: none;
+  border: none;
 }
 
 .form-other {
-    border-top: none !important;
-    border-right: none !important;
-    border-left: none !important;
-    background-color: #16365C;
-    border-bottom: 1px white dotted;
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  background-color: #16365c;
+  border-bottom: 1px white dotted;
+}
+
+.btn-proses {
+  position: fixed !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50px !important;
+  background-color: #243549 !important;
+  /* text-align: center; */
+  /* vertical-align: middle; */
+  /* padding: 10px 10px 10px 10px; */
+  bottom: 40px;
+  right: 200px;
+  color: white !important;
+}
+
+.btn-preview {
+  position: fixed !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50px !important;
+  background-color: #243549 !important;
+  /* text-align: center; */
+  /* vertical-align: middle; */
+  /* padding: 10px 10px 10px 10px; */
+  bottom: 130px;
+  right: 200px;
+  color: white !important;
 }

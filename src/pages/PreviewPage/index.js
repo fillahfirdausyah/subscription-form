@@ -7,7 +7,6 @@ import './style.css'
 function PreviewPage() {
     return (
         <div>
-            <Navbar />
             <Template/>
         </div>
     )

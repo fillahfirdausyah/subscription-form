@@ -6,7 +6,6 @@ import "./style.css";
 function MainPage() {
   return (
     <div className="main-page">
-      <Navbar />
       <Form />
     </div>
   );
