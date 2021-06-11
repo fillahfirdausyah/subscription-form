@@ -4,14 +4,19 @@ import Template from "../Template";
 import { DataContext } from "../../Context/DataContext";
 import DoneIcon from "@material-ui/icons/Done";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import Logo from '../../assets/BuanaLintas.png'
 import "./style.css";
 
 function Form(props) {
   const [data, setData] = useState({});
+  const [ptName, setPtName] = useState('')
   const [notify, setNotify] = useState(false);
 
-  const history = useHistory();
+  let haha = new Date()
+  let date = ("0" + haha.getDate()).slice(-2)
+  console.log(date)
 
+  // Data Structure
   // Info Ref
   const tgglRef = useRef();
   const noFpbRef = useRef();
@@ -25,6 +30,10 @@ function Form(props) {
   const alamatRef = useRef();
   const kotaRef = useRef();
   const kodePosRef = useRef();
+
+  const ptNamehandler = (e) => {
+    setPtName(e.target.value)
+  }
 
   const prosesHandler = (e) => {
     e.preventDefault();
@@ -62,10 +71,6 @@ function Form(props) {
     setData(newData);
   };
 
-  const nextProses = () => {
-    history.push("/preview");
-  };
-
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
   }, [data]);
@@ -73,7 +78,7 @@ function Form(props) {
   return (
     <div className="main mt-5">
       <div className="container">
-        <form>
+        <form onSubmit={prosesHandler}>
           {/* Informasi */}
           <div class="card text-white bg-dark-custom mb-3 card-custom">
             <div class="card-header">Informasi</div>
@@ -83,6 +88,7 @@ function Form(props) {
                   Tanggal
                 </label>
                 <input
+                  required
                   type="date"
                   class="form-control"
                   id="date"
@@ -94,6 +100,7 @@ function Form(props) {
                   No. FPB
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="no-fpb"
@@ -105,6 +112,7 @@ function Form(props) {
                   No. CID
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="no-cid"
@@ -197,6 +205,7 @@ function Form(props) {
                   Nama Perusahaan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -208,6 +217,7 @@ function Form(props) {
                   Group Perusahaan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="group-perusahaan"
@@ -219,6 +229,7 @@ function Form(props) {
                   Jenis Usaha
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -243,6 +254,7 @@ function Form(props) {
                       Kota
                     </label>
                     <input
+                      required
                       type="text"
                       class="form-control"
                       id="kota"
@@ -254,6 +266,7 @@ function Form(props) {
                       Kode Pos
                     </label>
                     <input
+                      required
                       type="number"
                       class="form-control"
                       id="kota"
@@ -267,6 +280,7 @@ function Form(props) {
                   Provinsi
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -278,6 +292,7 @@ function Form(props) {
                   Alamat Situs
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -289,6 +304,7 @@ function Form(props) {
                   Alamat Email
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -300,6 +316,7 @@ function Form(props) {
                   NPWP
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -311,6 +328,7 @@ function Form(props) {
                   Telephone
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -323,6 +341,7 @@ function Form(props) {
                   Fax
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -342,6 +361,7 @@ function Form(props) {
                   Nama
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -355,6 +375,7 @@ function Form(props) {
                 <div className="row">
                   <div className="col-5">
                     <input
+                      required
                       type="text"
                       placeholder="Tempat.."
                       class="form-control"
@@ -364,6 +385,7 @@ function Form(props) {
                   </div>
                   <div className="col-7">
                     <input
+                      required
                       type="date"
                       class="form-control"
                       id="group-perusahaan"
@@ -377,6 +399,7 @@ function Form(props) {
                   Jabatan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -388,6 +411,7 @@ function Form(props) {
                   Telephone
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -403,6 +427,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -416,6 +441,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -429,6 +455,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -442,6 +469,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -459,6 +487,7 @@ function Form(props) {
                   Kartu Identitas
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -470,6 +499,7 @@ function Form(props) {
                   Masa Berlaku
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -481,6 +511,7 @@ function Form(props) {
                   Alamat Email
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -499,6 +530,7 @@ function Form(props) {
                   Nama
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -510,6 +542,7 @@ function Form(props) {
                   Bagian
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -521,6 +554,7 @@ function Form(props) {
                   Jabatan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -532,6 +566,7 @@ function Form(props) {
                   Telephone
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -544,6 +579,7 @@ function Form(props) {
                   Fax
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -556,6 +592,7 @@ function Form(props) {
                   Alamat Email
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -589,6 +626,7 @@ function Form(props) {
                   Nama
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -600,6 +638,7 @@ function Form(props) {
                   Bagian
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -611,6 +650,7 @@ function Form(props) {
                   Jabatan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -622,6 +662,7 @@ function Form(props) {
                   Telephone
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -634,6 +675,7 @@ function Form(props) {
                   Handphone
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -645,6 +687,7 @@ function Form(props) {
                   Fax
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Kode Area / Nomor"
                   class="form-control"
@@ -657,6 +700,7 @@ function Form(props) {
                   Alamat Email
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="jenis-usaha"
@@ -678,6 +722,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -691,6 +736,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -704,6 +750,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -717,6 +764,7 @@ function Form(props) {
                   <div className="col">
                     <div class="form-check">
                       <input
+                        required
                         class="form-check-input"
                         type="checkbox"
                         value=""
@@ -734,6 +782,7 @@ function Form(props) {
                   Spesifikasi Layanan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -745,6 +794,7 @@ function Form(props) {
                   Informasi Tambahan
                 </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   id="nama-perusahaan"
@@ -778,6 +828,7 @@ function Form(props) {
                   Biaya Set Up
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Rp...."
                   class="form-control"
@@ -790,6 +841,7 @@ function Form(props) {
                   Biaya Layanan
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Rp...."
                   class="form-control"
@@ -805,46 +857,47 @@ function Form(props) {
             <div class="card-header">Tanda Tangan</div>
             <div className="card-body">
               <div class="mb-3">
-                <label for="nama-perusahaan" class="form-label">
-                  PT. Buana Lintas Media
-                </label>
-                <input
-                  type="file"
-                  class="form-control"
-                  id="nama-perusahaan"
-                  ref={namaPerusahaanRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="nama-perusahaan" class="form-label">
-                  PT.
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nama-perusahaan"
-                  ref={namaPerusahaanRef}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="nama-perusahaan" class="form-label">
-                  Tanda Tangan PT. 
-                </label>
-                <input
-                  type="file"
-                  class="form-control"
-                  id="nama-perusahaan"
-                  ref={namaPerusahaanRef}
-                />
+                <div className="row">
+                  <div className="col-6">
+                    <label for="nama-perusahaan" class="form-label">
+                      PT. Buana Lintas Media
+                    </label>
+                    <img src={Logo} alt="" />
+                  </div>
+                  <div className="col-6">
+                    <div class="mb-3">
+                      <label for="nama-perusahaan" class="form-label">
+                        PT.
+                      </label>
+                      <input
+                        required
+                        placeholder="PT. ...."
+                        type="text"
+                        class="form-control"
+                        id="nama-perusahaan"
+                        value={ptName}
+                        onChange={ptNamehandler}
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="nama-perusahaan" class="form-label">
+                        Tanda Tangan PT. {ptName}
+                      </label>
+                      <input
+                        required
+                        type="file"
+                        class="form-control"
+                        id="nama-perusahaan"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <button type="submit" className="btn-proses" onClick={prosesHandler}>
+          <button type="submit" className="btn-proses">
             <DoneIcon />
-          </button>
-          <button onClick={nextProses} className="btn btn-preview">
-            <VisibilityIcon />
           </button>
         </form>
       </div>
