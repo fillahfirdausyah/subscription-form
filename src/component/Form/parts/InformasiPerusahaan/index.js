@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function InformasiPerusahaan({senDataToParent}) {
+function InformasiPerusahaan({getInfoPerushaan}) {
   const [data, setData] = useState({
     namaPerusahaan: "",
     groupPerusahaan: "",
@@ -24,8 +24,7 @@ function InformasiPerusahaan({senDataToParent}) {
           [name]: value 
       }
       setData(iko)
-
-      senDataToParent(iko)
+      getInfoPerushaan(iko)
   };
 
   return (

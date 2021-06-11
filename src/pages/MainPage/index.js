@@ -1,12 +1,15 @@
-import { React, useRef } from "react";
+import { React, useState } from "react";
 import Form from "../../component/Form";
 import Navbar from "../../component/Navbar";
 import "./style.css";
 
 function MainPage() {
+  const [data, setData] = useState({})
+  console.log(data)
+
   return (
     <div className="main-page">
-      <Form />
+      <Form setData={setData}/>
     </div>
   );
 }
