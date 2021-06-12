@@ -1,36 +1,49 @@
 import { React, useEffect, useState } from "react";
 import DoneIcon from "@material-ui/icons/Done";
-import Logo from '../../assets/BuanaLintas.png'
+import Logo from "../../assets/BuanaLintas.png";
 import "./style.css";
 // Parts Component
+import TypeofOrder from "./parts/TypeofOrder";
 import InformasiPerusahaan from "./parts/InformasiPerusahaan";
-import Authorized from './parts/Authorized'
+import Authorized from "./parts/Authorized";
 
 function Form(props) {
-  // const [data, setData] = useState("")
-  const [ptName, setPtName] = useState('')
-  const [notify, setNotify] = useState(false);
-  const [infoPerusahaan, setInfoPerusahaan] = useState({})
+  const [data, setData] = useState("");
+  const [ptName, setPtName] = useState("");
 
-  const getInfoPerushaan = (index) => {
-    console.log(index)
-    setInfoPerusahaan(index)
-  }
+  //
+  const [typeofOrder, setTypeofOrder] = useState({});
+  const [infoPerusahaan, setInfoPerusahaan] = useState({});
+  const [authorized, setAuthorized] = useState({});
 
+  const getTypeofOrder = (data) => {
+    console.log(data);
+    setTypeofOrder(data);
+  };
+
+  const getInfoPerushaan = (data) => {
+    console.log(data);
+    setInfoPerusahaan(data);
+  };
+
+  const getAuthorized = (data) => {
+    console.log(data);
+    setAuthorized(data)
+  };
 
   const ptNamehandler = (e) => {
-    setPtName(e.target.value)
-  }
+    setPtName(e.target.value);
+  };
 
   const prosesHandler = (e) => {
     e.preventDefault();
-    
+
     // setData(infoPerusahaan)
     const data = {
-      infoPerusahaan
-    }
+      infoPerusahaan,
+    };
 
-    props.setData(data)
+    props.setData(data);
   };
 
   return (
@@ -78,97 +91,25 @@ function Form(props) {
           </div> */}
 
           {/* Jenis Permintaan */}
-          <div class="card text-white bg-dark-custom mb-3 card-custom">
-            <div class="card-header">Jenis Permintaan</div>
-            <div class="card-body">
-              <table className="main-page">
-                <tr>
-                  <td>Jenis Permintaan / Type of Order</td>
-                  <td>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value="New Installation"
-                        id="new-instalation"
-                      />
-                      <label class="form-check-label" for="new-instalation">
-                        New Installation
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value="Upgrade"
-                        id="upgrade"
-                      />
-                      <label class="form-check-label" for="upgrade">
-                        Upgrade
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value="Down Grade"
-                        id="down-grade"
-                      />
-                      <label class="form-check-label" for="down-grade">
-                        Down Grade
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value="Renewal"
-                        id="renewal"
-                      />
-                      <label class="form-check-label" for="renewal">
-                        Renewal
-                      </label>
-                    </div>
-                    <div class="mt-1">
-                      <label class="form-check-label" for="other">
-                        Other :{" "}
-                      </label>
-                      <input
-                        class="form-controll form-other"
-                        type="text"
-                        value=""
-                        id="other"
-                      />
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          {/* <TypeofOrder getTypeofOrder={getTypeofOrder}/> */}
 
           {/* Informasi Perusahaan Pelanggan */}
-          <InformasiPerusahaan getInfoPerushaan={getInfoPerushaan}/>
+          {/* <InformasiPerusahaan getInfoPerushaan={getInfoPerushaan} /> */}
 
           {/* Penanggung Jawab Perusahaan */}
-          <Authorized />
+          <Authorized getAuthorized={getAuthorized}/>
 
           {/* Penanggung Jawab Keuangan */}
-          
 
           {/* Alamat Penagihan */}
-          
 
           {/* Penanggung Jawab Teknis */}
-          
 
           {/* Layanan yang diminta */}
-          
 
           {/* Alamat Instalasi */}
-          
 
           {/* Biaya Berlanggana */}
-          
 
           {/* Tanda Tangan */}
           {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
