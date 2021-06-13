@@ -6,6 +6,10 @@ import "./style.css";
 import TypeofOrder from "./parts/TypeofOrder";
 import InformasiPerusahaan from "./parts/InformasiPerusahaan";
 import Authorized from "./parts/Authorized";
+import AuthorizedFinance from "./parts/AuthorizedFinance";
+import BillingAddress from "./parts/BillingAddress";
+import AuthorizedTechnical from './parts/AuthorizedTechnical'
+import ServiceOrder from './parts/ServicesOrder'
 
 function Form(props) {
   const [data, setData] = useState("");
@@ -15,21 +19,43 @@ function Form(props) {
   const [typeofOrder, setTypeofOrder] = useState({});
   const [infoPerusahaan, setInfoPerusahaan] = useState({});
   const [authorized, setAuthorized] = useState({});
+  const [authorizedFinance, setAuthorizedFinance] = useState({});
+  const [billingAddress, setBillingAddress] = useState({});
+  const [authorizedTechnical, setAuthorizedTechnical] = useState({})
+  const [serviceOrder, setServiceOrder] = useState({})
 
   const getTypeofOrder = (data) => {
-    console.log(data);
+    // console.log(data)
     setTypeofOrder(data);
   };
 
   const getInfoPerushaan = (data) => {
-    console.log(data);
+    // console.log(data);
     setInfoPerusahaan(data);
   };
 
   const getAuthorized = (data) => {
-    console.log(data);
-    setAuthorized(data)
+    // console.log(data);
+    setAuthorized(data);
   };
+
+  const getAuthorizedFinance = (data) => {
+    // console.log(data)
+    setAuthorizedFinance(data);
+  };
+
+  const getBillingAddress = (data) => {
+    console.log(data);
+    setBillingAddress(data);
+  };
+
+  const getAuthorizedTechnical = (data) => {
+    setAuthorizedTechnical(data)
+  }
+
+  const getServiceOrder = (data) => {
+    setServiceOrder(data)
+  }
 
   const ptNamehandler = (e) => {
     setPtName(e.target.value);
@@ -40,10 +66,15 @@ function Form(props) {
 
     // setData(infoPerusahaan)
     const data = {
-      infoPerusahaan,
+      // typeofOrder,
+      // infoPerusahaan,
+      // authorized,
+      // authorizedFinance,
+      // billingAddress,
+      // authorizedTechnical,
     };
-
-    props.setData(data);
+    // console.log(authorized)
+    props.setData(serviceOrder);
   };
 
   return (
@@ -97,15 +128,19 @@ function Form(props) {
           {/* <InformasiPerusahaan getInfoPerushaan={getInfoPerushaan} /> */}
 
           {/* Penanggung Jawab Perusahaan */}
-          <Authorized getAuthorized={getAuthorized}/>
+          {/* <Authorized getAuthorized={getAuthorized}/> */}
 
           {/* Penanggung Jawab Keuangan */}
+          {/* <AuthorizedFinance getAuthorizedFinance={getAuthorizedFinance}/> */}
 
           {/* Alamat Penagihan */}
+          {/* <BillingAddress getBillingAddress={getBillingAddress} /> */}
 
           {/* Penanggung Jawab Teknis */}
+          {/* <AuthorizedTechnical getAuthorizedTechnical={getAuthorizedTechnical}/> */}
 
           {/* Layanan yang diminta */}
+          <ServiceOrder getServiceOrder={getServiceOrder}/>
 
           {/* Alamat Instalasi */}
 

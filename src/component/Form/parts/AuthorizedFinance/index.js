@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-function AuthorizedFinance() {
+function AuthorizedFinance({ getAuthorizedFinance }) {
+  const [data, setaData] = useState({
+    nama: "",
+    bagian: "",
+    jabatan: "",
+    telephone: "",
+    fax: "",
+    email: "",
+  });
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    const newData = {
+      ...data,
+      [name]: value,
+    };
+    setaData(newData)
+    console.log(newData);
+
+    getAuthorizedFinance(newData)
+  };
+
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
@@ -11,11 +32,13 @@ function AuthorizedFinance() {
               Nama
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="nama-perusahaan"
-              ref={namaPerusahaanRef}
+              name="nama"
+              value={data.nama}
             />
           </div>
           <div class="mb-3">
@@ -23,11 +46,13 @@ function AuthorizedFinance() {
               Bagian
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="nama-perusahaan"
-              ref={namaPerusahaanRef}
+              name="bagian"
+              value={data.bagian}
             />
           </div>
           <div class="mb-3">
@@ -35,11 +60,13 @@ function AuthorizedFinance() {
               Jabatan
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="jabatan"
+              value={data.jabatan}
             />
           </div>
           <div class="mb-3">
@@ -47,12 +74,14 @@ function AuthorizedFinance() {
               Telephone
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="telephone"
+              value={data.telephone}
             />
           </div>
           <div class="mb-3">
@@ -60,12 +89,14 @@ function AuthorizedFinance() {
               Fax
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="fax"
+              value={data.fax}
             />
           </div>
           <div class="mb-3">
@@ -73,11 +104,13 @@ function AuthorizedFinance() {
               Alamat Email
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="email"
+              value={data.email}
             />
           </div>
         </div>

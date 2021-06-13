@@ -48,7 +48,7 @@ function Authorized({ getAuthorized }) {
       [name]: value,
     };
     setData(newData);
-    console.log(newData);
+    getAuthorized(newData)
   };
 
   return (
@@ -149,7 +149,7 @@ function Authorized({ getAuthorized }) {
           </div>
           <div class="mb-3">
             <label for="jenis-usaha" class="form-label">
-              Kartu Identitas
+              No. Kartu Identitas
             </label>
             <input
               required

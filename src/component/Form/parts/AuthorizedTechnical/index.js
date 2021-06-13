@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-function AuthorizedTechnical() {
+function AuthorizedTechnical({getAuthorizedTechnical}) {
+  const [data, setData] = useState({
+    nama: "",
+    bagian: "",
+    jabatan: "",
+    telephone: "",
+    handphone: "",
+    fax: "",
+    email: "",
+  });
+
+  const changeHandler = (e) => {
+    const {name, value} = e.target
+    const newData = {
+      ...data,
+      [name]: value
+    }
+    setData(newData)
+    getAuthorizedTechnical(newData)
+  };
+
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
@@ -11,11 +31,13 @@ function AuthorizedTechnical() {
               Nama
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="nama-perusahaan"
-              ref={namaPerusahaanRef}
+              name="nama"
+              value={data.nama}
             />
           </div>
           <div class="mb-3">
@@ -23,11 +45,13 @@ function AuthorizedTechnical() {
               Bagian
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="nama-perusahaan"
-              ref={namaPerusahaanRef}
+              name="bagian"
+              value={data.bagian}
             />
           </div>
           <div class="mb-3">
@@ -35,11 +59,13 @@ function AuthorizedTechnical() {
               Jabatan
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="jabatan"
+              value={data.jabatan}
             />
           </div>
           <div class="mb-3">
@@ -47,12 +73,14 @@ function AuthorizedTechnical() {
               Telephone
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="telephone"
+              value={data.telephone}
             />
           </div>
           <div class="mb-3">
@@ -60,11 +88,13 @@ function AuthorizedTechnical() {
               Handphone
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="handphone"
+              value={data.handphone}
             />
           </div>
           <div class="mb-3">
@@ -72,12 +102,14 @@ function AuthorizedTechnical() {
               Fax
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="fax"
+              value={data.fax}
             />
           </div>
           <div class="mb-3">
@@ -85,11 +117,13 @@ function AuthorizedTechnical() {
               Alamat Email
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="jenis-usaha"
-              ref={jenisUsahaRef}
+              name="email"
+              value={data.email}
             />
           </div>
         </div>

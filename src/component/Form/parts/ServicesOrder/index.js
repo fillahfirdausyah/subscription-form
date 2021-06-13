@@ -1,6 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import Radio from "../../../Radio";
 
-function ServiceOrder() {
+function ServiceOrder({ getServiceOrder }) {
+  const [data, setData] = useState({
+    spesifikasiLayanan: "",
+    informasiTambahan: "",
+  });
+
+  const radioData = [
+    {
+      name: "serviceOrder",
+      id: "internet",
+      label: "INTERNET",
+      val: "Internet",
+    },
+    {
+      name: "serviceOrder",
+      id: "voip",
+      label: "VOIP",
+      val: "Voip",
+    },
+    {
+      name: "serviceOrder",
+      id: "vps",
+      label: "VPS",
+      val: "Vps",
+    },
+    {
+      name: "serviceOrder",
+      id: "internet",
+      label: "SOFTWARE AS SERVICE ",
+      val: "SoftWareAsService",
+    },
+  ];
+
+  const changeHandler = (e) => {
+    const {name, value} = e.target
+
+    const newData = {
+      ...data,
+      [name]: value
+    }
+    setData(newData)
+    getServiceOrder(newData)
+  };
+
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
@@ -11,62 +55,16 @@ function ServiceOrder() {
               Jenis Layanan
             </label>
             <div className="row">
-              <div className="col">
-                <div class="form-check">
-                  <input
-                    required
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
+              {radioData.map((x) => (
+                <div className="col">
+                  <Radio
+                    name={x.name}
+                    value={x.val}
+                    label={x.label}
+                    onChange={changeHandler}
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Internet
-                  </label>
                 </div>
-              </div>
-              <div className="col">
-                <div class="form-check">
-                  <input
-                    required
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    VOIP
-                  </label>
-                </div>
-              </div>
-              <div className="col">
-                <div class="form-check">
-                  <input
-                    required
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    VPS
-                  </label>
-                </div>
-              </div>
-              <div className="col">
-                <div class="form-check">
-                  <input
-                    required
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Software as Service
-                  </label>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div class="mb-3">
@@ -74,11 +72,13 @@ function ServiceOrder() {
               Spesifikasi Layanan
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="nama-perusahaan"
-              ref={namaPerusahaanRef}
+              name="spesifikasiLayanan"
+              value={data.spesifikasiLayanan}
             />
           </div>
           <div class="mb-3">
@@ -86,11 +86,13 @@ function ServiceOrder() {
               Informasi Tambahan
             </label>
             <input
+              onChange={changeHandler}
               required
               type="text"
               class="form-control"
               id="nama-perusahaan"
-              ref={namaPerusahaanRef}
+              name="informasiTambahan"
+              value={data.informasiTambahan}
             />
           </div>
         </div>

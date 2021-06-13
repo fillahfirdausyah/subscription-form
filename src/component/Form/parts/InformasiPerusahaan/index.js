@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function InformasiPerusahaan({getInfoPerushaan}) {
+function InformasiPerusahaan({ getInfoPerushaan }) {
   const [data, setData] = useState({
     namaPerusahaan: "",
     groupPerusahaan: "",
@@ -16,15 +16,14 @@ function InformasiPerusahaan({getInfoPerushaan}) {
     fax: "",
   });
 
-  
   const changeHandler = (e) => {
-      const {name, value} = e.target
-      const iko = {
-          ...data,
-          [name]: value 
-      }
-      setData(iko)
-      getInfoPerushaan(iko)
+    const { name, value } = e.target;
+    const iko = {
+      ...data,
+      [name]: value,
+    };
+    setData(iko);
+    getInfoPerushaan(iko);
   };
 
   return (
@@ -79,6 +78,7 @@ function InformasiPerusahaan({getInfoPerushaan}) {
               Alamat
             </label>
             <textarea
+              onChange={changeHandler}
               class="form-control"
               id="alamat"
               rows="3"

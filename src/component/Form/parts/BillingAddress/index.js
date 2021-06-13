@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-function BillingAddres() {
+function BillingAddres({getBillingAddress}) {
+  const [data, setData] = useState({});
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    const newData = {
+      [name]: value,
+    };
+    setData(newData)
+    getBillingAddress(newData)
+  };
+
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
@@ -11,7 +22,9 @@ function BillingAddres() {
               class="form-control"
               id="alamat"
               rows="3"
-              ref={alamatRef}
+              name="alamat"
+              value={data.alamat}
+              onChange={changeHandler}
             ></textarea>
           </div>
         </div>
