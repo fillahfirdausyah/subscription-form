@@ -1,6 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 
-function InstallationAddres() {
+function InstallationAddres({getInstallationAddress}) {
+
+  const [data, setData] = useState({})
+
+  const changeHandler = (e) => {
+
+    const {name, value} = e.target
+
+    const newData = {
+      [name]: value
+    }
+    setData(newData)
+    getInstallationAddress(newData)
+  }
+
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
@@ -8,10 +22,12 @@ function InstallationAddres() {
         <div className="card-body">
           <div class="mb-3">
             <textarea
+            onChange={changeHandler}
               class="form-control"
               id="alamat"
               rows="3"
-              ref={alamatRef}
+              name="installationAddress"
+              value={data.alamat}
             ></textarea>
           </div>
         </div>

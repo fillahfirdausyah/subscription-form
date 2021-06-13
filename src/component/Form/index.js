@@ -10,6 +10,7 @@ import AuthorizedFinance from "./parts/AuthorizedFinance";
 import BillingAddress from "./parts/BillingAddress";
 import AuthorizedTechnical from './parts/AuthorizedTechnical'
 import ServiceOrder from './parts/ServicesOrder'
+import InstallationAddres from './parts/InstallationAddress'
 
 function Form(props) {
   const [data, setData] = useState("");
@@ -23,6 +24,7 @@ function Form(props) {
   const [billingAddress, setBillingAddress] = useState({});
   const [authorizedTechnical, setAuthorizedTechnical] = useState({})
   const [serviceOrder, setServiceOrder] = useState({})
+  const [installationAddress, setInstallationAddress] = useState({})
 
   const getTypeofOrder = (data) => {
     // console.log(data)
@@ -57,6 +59,10 @@ function Form(props) {
     setServiceOrder(data)
   }
 
+  const getInstallationAddress = (data) => {
+    setInstallationAddress(data)
+  }
+
   const ptNamehandler = (e) => {
     setPtName(e.target.value);
   };
@@ -72,9 +78,10 @@ function Form(props) {
       // authorizedFinance,
       // billingAddress,
       // authorizedTechnical,
+      // serviceOrder,
     };
     // console.log(authorized)
-    props.setData(serviceOrder);
+    props.setData();
   };
 
   return (
@@ -140,9 +147,10 @@ function Form(props) {
           {/* <AuthorizedTechnical getAuthorizedTechnical={getAuthorizedTechnical}/> */}
 
           {/* Layanan yang diminta */}
-          <ServiceOrder getServiceOrder={getServiceOrder}/>
+          {/* <ServiceOrder getServiceOrder={getServiceOrder}/> */}
 
           {/* Alamat Instalasi */}
+          <InstallationAddres getInstallationAddress={getInstallationAddress}/>
 
           {/* Biaya Berlanggana */}
 
