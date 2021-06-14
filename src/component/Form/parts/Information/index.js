@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-function Information() {
-
+function Information({getInformation}) {
 const [no, setNo] = useState('')
+const [data, setData] = useState({})
     
 let ts = Date.now();
 let date_ob = new Date(ts);
@@ -66,6 +66,15 @@ axios
     .then((x) => {
     setNo(Object.values(x.data).length)
     });
+
+    const newData = {
+        tggl: currentDate,
+        fpb: hasil,
+        cid: info1
+    }
+
+    getInformation(newData)
+
 }, []);
 
 return (

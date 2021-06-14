@@ -19,6 +19,7 @@ function Form(props) {
   // const [data, setData] = useState("");
 
   //
+  const [information, setInformation] = useState({})
   const [typeofOrder, setTypeofOrder] = useState({});
   const [infoPerusahaan, setInfoPerusahaan] = useState({});
   const [authorized, setAuthorized] = useState({});
@@ -29,6 +30,11 @@ function Form(props) {
   const [installationAddress, setInstallationAddress] = useState({});
   const [subscriptionFee, setSubscriptionFee] = useState({})
   const [client, setClient] = useState({})
+
+  const getInformation = (data) => {
+    console.log(data)
+    setInformation(data)
+  }
 
   const getTypeofOrder = (data) => {
     // console.log(data)
@@ -79,6 +85,7 @@ function Form(props) {
 
     // setData(infoPerusahaan)
     const data = {
+      information,
       typeofOrder,
       infoPerusahaan,
       authorized,
@@ -98,7 +105,7 @@ function Form(props) {
       <div className="container">
         <form onSubmit={prosesHandler}>
           {/* Informasi */}
-          <Information />
+          <Information getInformation={getInformation}/>
 
           {/* Jenis Permintaan */}
           <TypeofOrder getTypeofOrder={getTypeofOrder}/>
