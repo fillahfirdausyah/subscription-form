@@ -83,6 +83,7 @@ return (
             class="form-control"
             id="date"
             value={currentDate}
+            disabled
         />
         </div>
         <div class="mb-3">
