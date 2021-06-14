@@ -8,12 +8,12 @@ import "./style.css";
 function MainPage() {
   const history = useHistory();
 
-  const postHandler = (newData) => {
+  const postHandler = (data) => {
     axios
       .post(
         "https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data.json",
         {
-          newData,
+          data,
         }
       )
       .then(() => {

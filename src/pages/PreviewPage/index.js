@@ -4,7 +4,8 @@ import Navbar from '../../component/Navbar'
 
 import './style.css'
 
-function PreviewPage() {
+function PreviewPage(props) 
+{
     return (
         <div>
             <Template/>
