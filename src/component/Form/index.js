@@ -3,6 +3,7 @@ import DoneIcon from "@material-ui/icons/Done";
 import Logo from "../../assets/BuanaLintas.png";
 import "./style.css";
 // Parts Component
+import Information from "./parts/Information";
 import TypeofOrder from "./parts/TypeofOrder";
 import InformasiPerusahaan from "./parts/InformasiPerusahaan";
 import Authorized from "./parts/Authorized";
@@ -97,44 +98,7 @@ function Form(props) {
       <div className="container">
         <form onSubmit={prosesHandler}>
           {/* Informasi */}
-          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
-            <div class="card-header">Informasi</div>
-            <div class="card-body">
-              <div class="mb-3">
-                <label for="date" class="form-label">
-                  Tanggal
-                </label>
-                <input
-                  required
-                  type="date"
-                  class="form-control"
-                  id="date"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="no-fpb" class="form-label">
-                  No. FPB
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="no-fpb"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="no-cid" class="form-label">
-                  No. CID
-                </label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="no-cid"
-                />
-              </div>
-            </div>
-          </div> */}
+          <Information />
 
           {/* Jenis Permintaan */}
           <TypeofOrder getTypeofOrder={getTypeofOrder}/>
