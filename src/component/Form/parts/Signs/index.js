@@ -40,7 +40,6 @@ function Signs({ getPtClient }) {
               PT.
             </label>
             <input
-              required
               placeholder="PT. ...."
               type="text"
               class="form-control"
@@ -55,7 +54,6 @@ function Signs({ getPtClient }) {
               Tanda Tangan PT. {data.namaPT}
             </label>
             <input
-              required
               type="file"
               class="form-control"
               id="nama-perusahaan"

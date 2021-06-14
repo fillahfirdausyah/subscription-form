@@ -32,7 +32,6 @@ function Form(props) {
   const [client, setClient] = useState({})
 
   const getInformation = (data) => {
-    console.log(data)
     setInformation(data)
   }
 
@@ -97,7 +96,7 @@ function Form(props) {
       client
     };
 
-    props.setData(data);
+    props.postData(data);
   };
 
   return (

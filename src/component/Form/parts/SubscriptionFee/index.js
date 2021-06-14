@@ -28,7 +28,6 @@ function SubscriptionFee({ getSubscriptionFee }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="number"
               placeholder="Rp...."
               class="form-control"
@@ -43,7 +42,6 @@ function SubscriptionFee({ getSubscriptionFee }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="number"
               placeholder="Rp...."
               class="form-control"

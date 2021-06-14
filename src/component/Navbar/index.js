@@ -31,6 +31,11 @@ function Navbar() {
                 Preview
               </Link>
             </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/berhasil">
+                Berhasil
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

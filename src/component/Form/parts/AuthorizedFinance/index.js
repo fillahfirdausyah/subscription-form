@@ -33,7 +33,6 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="nama-perusahaan"
@@ -47,7 +46,6 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="nama-perusahaan"
@@ -61,7 +59,6 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"
@@ -75,7 +72,6 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="number"
               placeholder="Kode Area / Nomor"
               class="form-control"
@@ -90,7 +86,6 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="number"
               placeholder="Kode Area / Nomor"
               class="form-control"
@@ -105,7 +100,6 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"

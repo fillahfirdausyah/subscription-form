@@ -2,9 +2,10 @@ import { React, useState, useEffect } from "react";
 import PreviewPage from "./pages/PreviewPage";
 import MainPage from "./pages/MainPage";
 import PhonePage from "./pages/PhonePage";
+import SuccessPage from "./pages/SuccessPage";
 import { Switch, Route } from "react-router-dom";
 import { DataProvider } from "./Context/DataContext";
-import { DataContext } from './Context/DataContext'
+import { DataContext } from "./Context/DataContext";
 
 function App() {
   const [layar, setLayar] = useState(window.innerWidth);
@@ -28,8 +29,11 @@ function App() {
             <Route path="/preview">
               <PreviewPage />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <MainPage />
+            </Route>
+            <Route path="/berhasil">
+              <SuccessPage />
             </Route>
           </Switch>
         </DataProvider>

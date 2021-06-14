@@ -73,7 +73,6 @@ function ServiceOrder({ getServiceOrder }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="nama-perusahaan"
@@ -87,7 +86,6 @@ function ServiceOrder({ getServiceOrder }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="nama-perusahaan"

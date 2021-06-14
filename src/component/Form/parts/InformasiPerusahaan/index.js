@@ -37,7 +37,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="nama-perusahaan"
@@ -51,7 +50,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="group-perusahaan"
@@ -65,7 +63,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"
@@ -94,7 +91,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
                 </label>
                 <input
                   onChange={changeHandler}
-                  required
                   type="text"
                   class="form-control"
                   id="kota"
@@ -108,7 +104,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
                 </label>
                 <input
                   onChange={changeHandler}
-                  required
                   type="number"
                   class="form-control"
                   id="kota"
@@ -124,7 +119,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"
@@ -138,7 +132,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"
@@ -152,7 +145,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"
@@ -166,7 +158,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               class="form-control"
               id="jenis-usaha"
@@ -180,7 +171,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               placeholder="Kode Area / Nomor"
               class="form-control"
@@ -195,7 +185,6 @@ function InformasiPerusahaan({ getInfoPerushaan }) {
             </label>
             <input
               onChange={changeHandler}
-              required
               type="text"
               placeholder="Kode Area / Nomor"
               class="form-control"

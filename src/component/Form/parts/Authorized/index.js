@@ -61,7 +61,6 @@ function Authorized({ getAuthorized }) {
               Nama
             </label>
             <input
-              required
               type="text"
               onChange={changeHandler}
               class="form-control"
@@ -77,7 +76,6 @@ function Authorized({ getAuthorized }) {
             <div className="row">
               <div className="col-5">
                 <input
-                  required
                   type="text"
                   onChange={changeHandler}
                   placeholder="Tempat.."
@@ -89,7 +87,6 @@ function Authorized({ getAuthorized }) {
               </div>
               <div className="col-7">
                 <input
-                  required
                   type="date"
                   class="form-control"
                   id="group-perusahaan"
@@ -105,7 +102,6 @@ function Authorized({ getAuthorized }) {
               Jabatan
             </label>
             <input
-              required
               type="text"
               onChange={changeHandler}
               class="form-control"
@@ -119,7 +115,6 @@ function Authorized({ getAuthorized }) {
               Telephone
             </label>
             <input
-              required
               type="number"
               onChange={changeHandler}
               placeholder="Kode Area / Nomor"
@@ -152,7 +147,6 @@ function Authorized({ getAuthorized }) {
               No. Kartu Identitas
             </label>
             <input
-              required
               type="number"
               onChange={changeHandler}
               class="form-control"
@@ -166,7 +160,6 @@ function Authorized({ getAuthorized }) {
               Masa Berlaku
             </label>
             <input
-              required
               type="text"
               onChange={changeHandler}
               class="form-control"
@@ -180,7 +173,6 @@ function Authorized({ getAuthorized }) {
               Alamat Email
             </label>
             <input
-              required
               type="email"
               onChange={changeHandler}
               class="form-control"
