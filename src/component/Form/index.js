@@ -8,13 +8,14 @@ import InformasiPerusahaan from "./parts/InformasiPerusahaan";
 import Authorized from "./parts/Authorized";
 import AuthorizedFinance from "./parts/AuthorizedFinance";
 import BillingAddress from "./parts/BillingAddress";
-import AuthorizedTechnical from './parts/AuthorizedTechnical'
-import ServiceOrder from './parts/ServicesOrder'
-import InstallationAddres from './parts/InstallationAddress'
+import AuthorizedTechnical from "./parts/AuthorizedTechnical";
+import ServiceOrder from "./parts/ServicesOrder";
+import InstallationAddres from "./parts/InstallationAddress";
+import SubscriptionFee from './parts/SubscriptionFee'
+import Signs from './parts/Signs'
 
 function Form(props) {
-  const [data, setData] = useState("");
-  const [ptName, setPtName] = useState("");
+  // const [data, setData] = useState("");
 
   //
   const [typeofOrder, setTypeofOrder] = useState({});
@@ -22,9 +23,11 @@ function Form(props) {
   const [authorized, setAuthorized] = useState({});
   const [authorizedFinance, setAuthorizedFinance] = useState({});
   const [billingAddress, setBillingAddress] = useState({});
-  const [authorizedTechnical, setAuthorizedTechnical] = useState({})
-  const [serviceOrder, setServiceOrder] = useState({})
-  const [installationAddress, setInstallationAddress] = useState({})
+  const [authorizedTechnical, setAuthorizedTechnical] = useState({});
+  const [serviceOrder, setServiceOrder] = useState({});
+  const [installationAddress, setInstallationAddress] = useState({});
+  const [subscriptionFee, setSubscriptionFee] = useState({})
+  const [client, setClient] = useState({})
 
   const getTypeofOrder = (data) => {
     // console.log(data)
@@ -47,41 +50,46 @@ function Form(props) {
   };
 
   const getBillingAddress = (data) => {
-    console.log(data);
     setBillingAddress(data);
   };
 
   const getAuthorizedTechnical = (data) => {
-    setAuthorizedTechnical(data)
-  }
+    setAuthorizedTechnical(data);
+  };
 
   const getServiceOrder = (data) => {
-    setServiceOrder(data)
-  }
+    setServiceOrder(data);
+  };
 
   const getInstallationAddress = (data) => {
-    setInstallationAddress(data)
+    setInstallationAddress(data);
+  };
+
+  const getSubscriptionFee = (data) => {
+    setSubscriptionFee(data)
   }
 
-  const ptNamehandler = (e) => {
-    setPtName(e.target.value);
-  };
+  const getPtClient = (data) => {
+    setClient(data)
+  }
 
   const prosesHandler = (e) => {
     e.preventDefault();
 
     // setData(infoPerusahaan)
     const data = {
-      // typeofOrder,
-      // infoPerusahaan,
-      // authorized,
-      // authorizedFinance,
-      // billingAddress,
-      // authorizedTechnical,
-      // serviceOrder,
+      typeofOrder,
+      infoPerusahaan,
+      authorized,
+      authorizedFinance,
+      billingAddress,
+      authorizedTechnical,
+      serviceOrder,
+      subscriptionFee,
+      client
     };
-    // console.log(authorized)
-    props.setData();
+
+    props.setData(data);
   };
 
   return (
@@ -129,74 +137,34 @@ function Form(props) {
           </div> */}
 
           {/* Jenis Permintaan */}
-          {/* <TypeofOrder getTypeofOrder={getTypeofOrder}/> */}
+          <TypeofOrder getTypeofOrder={getTypeofOrder}/>
 
           {/* Informasi Perusahaan Pelanggan */}
-          {/* <InformasiPerusahaan getInfoPerushaan={getInfoPerushaan} /> */}
+          <InformasiPerusahaan getInfoPerushaan={getInfoPerushaan} />
 
           {/* Penanggung Jawab Perusahaan */}
-          {/* <Authorized getAuthorized={getAuthorized}/> */}
+          <Authorized getAuthorized={getAuthorized}/>
 
           {/* Penanggung Jawab Keuangan */}
-          {/* <AuthorizedFinance getAuthorizedFinance={getAuthorizedFinance}/> */}
+          <AuthorizedFinance getAuthorizedFinance={getAuthorizedFinance}/>
 
           {/* Alamat Penagihan */}
-          {/* <BillingAddress getBillingAddress={getBillingAddress} /> */}
+          <BillingAddress getBillingAddress={getBillingAddress} />
 
           {/* Penanggung Jawab Teknis */}
-          {/* <AuthorizedTechnical getAuthorizedTechnical={getAuthorizedTechnical}/> */}
+          <AuthorizedTechnical getAuthorizedTechnical={getAuthorizedTechnical}/>
 
           {/* Layanan yang diminta */}
-          {/* <ServiceOrder getServiceOrder={getServiceOrder}/> */}
+          <ServiceOrder getServiceOrder={getServiceOrder}/>
 
           {/* Alamat Instalasi */}
           <InstallationAddres getInstallationAddress={getInstallationAddress}/>
 
           {/* Biaya Berlanggana */}
+          <SubscriptionFee getSubscriptionFee={getSubscriptionFee}/>
 
           {/* Tanda Tangan */}
-          {/* <div class="card text-white bg-dark-custom mb-3 card-custom">
-            <div class="card-header">Tanda Tangan</div>
-            <div className="card-body">
-              <div class="mb-3">
-                <div className="row">
-                  <div className="col-6">
-                    <label for="nama-perusahaan" class="form-label">
-                      PT. Buana Lintas Media
-                    </label>
-                    <img src={Logo} alt="" />
-                  </div>
-                  <div className="col-6">
-                    <div class="mb-3">
-                      <label for="nama-perusahaan" class="form-label">
-                        PT.
-                      </label>
-                      <input
-                        required
-                        placeholder="PT. ...."
-                        type="text"
-                        class="form-control"
-                        id="nama-perusahaan"
-                        value={ptName}
-                        onChange={ptNamehandler}
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="nama-perusahaan" class="form-label">
-                        Tanda Tangan PT. {ptName}
-                      </label>
-                      <input
-                        required
-                        type="file"
-                        class="form-control"
-                        id="nama-perusahaan"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
+          <Signs getPtClient={getPtClient}/>
 
           <button type="submit" className="btn-proses">
             <DoneIcon />

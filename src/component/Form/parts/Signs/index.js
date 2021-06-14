@@ -1,55 +1,66 @@
 import React, { useState } from "react";
 
-function SubscriptionFee({ getSubscriptionFee }) {
+function Signs({ getPtClient }) {
+  //   const [nama, setNama] = useState('')
+  //   const [file, setFile] = useState('')
   const [data, setData] = useState({
-    biayaSetUp: "",
-    biayaLayanan: "",
+    namaPT: "",
+    ttd: "",
   });
 
   const changeHandler = (e) => {
-    const {name, value} = e.target
+    const { name, value } = e.target;
 
-    const newData = {
+    let newData = {
       ...data,
-      [name]: value
+      [name]: value,
+    };
+
+    setData(newData);
+    console.log(newData);
+  };
+
+  const fileHandler = (e) => {
+    const newData = {
+        ...data,
+        [e.target.name]: e.target.files[0]
     }
+
     setData(newData)
-    getSubscriptionFee(newData)
+    getPtClient(newData)
   };
 
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
-        <div class="card-header">Biaya Berlangganan</div>
+        <div class="card-header">Tanda Tangan</div>
         <div className="card-body">
           <div class="mb-3">
             <label for="nama-perusahaan" class="form-label">
-              Biaya Set Up
+              PT.
             </label>
             <input
-              onChange={changeHandler}
               required
-              type="number"
-              placeholder="Rp...."
+              placeholder="PT. ...."
+              type="text"
               class="form-control"
               id="nama-perusahaan"
-              name="biayaSetUp"
-              value={data.biayaSetUp}
+              name="namaPT"
+              value={data.namaPT}
+              onChange={changeHandler}
             />
           </div>
           <div class="mb-3">
             <label for="nama-perusahaan" class="form-label">
-              Biaya Layanan
+              Tanda Tangan PT. {data.namaPT}
             </label>
             <input
-              onChange={changeHandler}
               required
-              type="number"
-              placeholder="Rp...."
+              type="file"
               class="form-control"
               id="nama-perusahaan"
-              name="biayaLayanan"
-              value={data.biayaLayanan}
+              name="ttd"
+              onChange={fileHandler}
             />
           </div>
         </div>
@@ -58,4 +69,4 @@ function SubscriptionFee({ getSubscriptionFee }) {
   );
 }
 
-export default SubscriptionFee;
+export default Signs;

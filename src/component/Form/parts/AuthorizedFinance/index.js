@@ -76,7 +76,7 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             <input
               onChange={changeHandler}
               required
-              type="text"
+              type="number"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
@@ -91,7 +91,7 @@ function AuthorizedFinance({ getAuthorizedFinance }) {
             <input
               onChange={changeHandler}
               required
-              type="text"
+              type="number"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"

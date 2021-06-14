@@ -75,7 +75,7 @@ function AuthorizedTechnical({getAuthorizedTechnical}) {
             <input
               onChange={changeHandler}
               required
-              type="text"
+              type="number"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
@@ -90,7 +90,7 @@ function AuthorizedTechnical({getAuthorizedTechnical}) {
             <input
               onChange={changeHandler}
               required
-              type="text"
+              type="number"
               class="form-control"
               id="jenis-usaha"
               name="handphone"
@@ -104,7 +104,7 @@ function AuthorizedTechnical({getAuthorizedTechnical}) {
             <input
               onChange={changeHandler}
               required
-              type="text"
+              type="number"
               placeholder="Kode Area / Nomor"
               class="form-control"
               id="jenis-usaha"
