@@ -6,24 +6,6 @@ import "./style.css";
 import Logo from "../../assets/BuanaLintas.png";
 
 function Template(props) {
-  const [data, setData] = useState({
-    info: {
-      tggl: "",
-      noFpb: "",
-      noCid: "",
-    }
-  });
-
-  useEffect(() => {
-    const json = localStorage.getItem("data");
-    const savedData = JSON.parse(json);
-
-    if (savedData) {
-      setData(savedData);
-    }
-  }, []);
-
-  console.log(data);
 
   return (
     <div className="pdf">
@@ -59,20 +41,20 @@ function Template(props) {
           <span className="font-italic">/ Please tick in appropriate box</span>
           <div className="information">
             <div className="date">
-              <input type="text" value={data.info.tggl} disabled/>
+              <input type="text" disabled/>
             </div>
             <div className="fpb-info">
               <table>
                 <tr>
                   <td>No. FPB :</td>
                   <td>
-                    <input type="text" className="input-no" value={data.info.noFpb} disabled/>
+                    <input type="text" className="input-no" disabled/>
                   </td>
                 </tr>
                 <tr>
                   <td>No. CID :</td>
                   <td>
-                    <input type="text" className="input-no" value={data.info.noCid} disabled/>
+                    <input type="text" className="input-no" disabled/>
                   </td>
                 </tr>
               </table>

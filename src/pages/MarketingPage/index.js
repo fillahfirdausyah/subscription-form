@@ -11,21 +11,23 @@ function MarketingPage() {
 
   useEffect(() => {
     setisLoading(true);
-    fetch(
-      "https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data.json"
-    )
-      .then((res) => res.json())
+    axios
+      .get(
+        "https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data.json"
+      )
       .then((res) => {
         const newData = [];
 
-        for (const key in res) {
+        for (const key in res.data) {
           const x = {
             id: key,
-            ...res[key],
+            ...res.data[key],
           };
 
           newData.push(x);
         }
+
+        console.log(res.data);
 
         setisLoading(false);
         setData(newData);
@@ -50,11 +52,19 @@ function MarketingPage() {
           <div className="col-4">
             <div class="card card-code bg-dark-custom">
               <div class="card-body">
-                <h5 class="card-title">PT. {x.data.client.namaPT}</h5>
+                <h5 class="card-title">
+                  PT. {x.data.infoPerusahaan.namaPerusahaan}
+                </h5>
                 <ul>
-                  <li>Jenis Usaha : {x.data.infoPerusahaan.jenisUsaha}</li>
-                  <li>Alamat Email : {x.data.infoPerusahaan.alamatEmail}</li>
-                  <li>Alamat Situs : {x.data.infoPerusahaan.alamatSitus}</li>
+                  <li key={x.id}>
+                    Jenis Usaha : {x.data.infoPerusahaan.jenisUsaha}
+                  </li>
+                  <li key={x.id}>
+                    Alamat Email : {x.data.infoPerusahaan.alamatEmail}
+                  </li>
+                  <li key={x.id}>
+                    Alamat Situs : {x.data.infoPerusahaan.alamatSitus}
+                  </li>
                 </ul>
                 <Link to={`/preview/${x.id}`} className="btn btn-primary">
                   <VisibilityIcon />

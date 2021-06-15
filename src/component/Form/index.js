@@ -84,6 +84,7 @@ function Form(props) {
 
     // setData(infoPerusahaan)
     const data = {
+      id: '',
       information,
       typeofOrder,
       infoPerusahaan,
@@ -92,6 +93,7 @@ function Form(props) {
       billingAddress,
       authorizedTechnical,
       serviceOrder,
+      installationAddress,
       subscriptionFee,
       client
     };
