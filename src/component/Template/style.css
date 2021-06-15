@@ -13,6 +13,10 @@ textarea:focus {
     height: 18px;
 }
 
+input:disabled {
+    color: black;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -58,6 +62,10 @@ section .section1 {
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+}
+
+.information input {
+    width: 250px;
 }
 
 .input-date {

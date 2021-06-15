@@ -12,9 +12,9 @@ function PreviewPage(props) {
     const {id} = useParams()
 
     useEffect(() => {
-        axios.get(`https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data.json?id=${id}`)
+        axios.get(`https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data/${id}.json`)
         .then(res => {
-            setData([res])
+            setData([res.data])
         })
     }, [])
 
