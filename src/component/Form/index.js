@@ -28,7 +28,6 @@ function Form(props) {
   const [authorizedTechnical, setAuthorizedTechnical] = useState({});
   const [serviceOrder, setServiceOrder] = useState({});
   const [installationAddress, setInstallationAddress] = useState({});
-  const [subscriptionFee, setSubscriptionFee] = useState({})
   const [client, setClient] = useState({})
 
   const getInformation = (data) => {
@@ -71,10 +70,6 @@ function Form(props) {
     setInstallationAddress(data);
   };
 
-  const getSubscriptionFee = (data) => {
-    setSubscriptionFee(data)
-  }
-
   const getPtClient = (data) => {
     setClient(data)
   }
@@ -94,7 +89,6 @@ function Form(props) {
       authorizedTechnical,
       serviceOrder,
       installationAddress,
-      subscriptionFee,
       client
     };
 
@@ -131,9 +125,6 @@ function Form(props) {
 
           {/* Alamat Instalasi */}
           <InstallationAddres getInstallationAddress={getInstallationAddress}/>
-
-          {/* Biaya Berlanggana */}
-          <SubscriptionFee getSubscriptionFee={getSubscriptionFee}/>
 
           {/* Tanda Tangan */}
           <Signs getPtClient={getPtClient}/>

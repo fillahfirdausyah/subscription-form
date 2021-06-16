@@ -8,6 +8,7 @@ import MainPage from "./pages/MainPage";
 import PhonePage from "./pages/PhonePage";
 import SuccessPage from "./pages/SuccessPage";
 import MarketingPage from "./pages/MarketingPage";
+import LengkapiPage from "./pages/LengkapiPage";
 
 function App() {
   const [layar, setLayar] = useState(window.innerWidth);
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/marketing">
               <MarketingPage />
+            </Route>
+            <Route path="/lengkapi/:id">
+              <LengkapiPage />
             </Route>
           </Switch>
         </DataProvider>

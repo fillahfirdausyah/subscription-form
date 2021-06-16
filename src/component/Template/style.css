@@ -1,3 +1,7 @@
+.pdf {
+    color: black;
+}
+
 input:focus {
     outline: none;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import CreateIcon from "@material-ui/icons/Create";
 import "./style.css";
 import axios from "axios";
 
@@ -66,8 +67,12 @@ function MarketingPage() {
                     Alamat Situs : {x.data.infoPerusahaan.alamatSitus}
                   </li>
                 </ul>
-                <Link to={`/preview/${x.id}`} className="btn btn-primary">
-                  <VisibilityIcon />
+                <Link to={`/preview/${x.id}`} className="btn btn-primary preview-btn">
+                  <VisibilityIcon /> Preview
+                </Link>
+                <Link to={`/lengkapi/${x.id}`} className="btn btn-primary">
+                  <CreateIcon />
+                  Lengkapi
                 </Link>
               </div>
             </div>
