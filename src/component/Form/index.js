@@ -98,7 +98,7 @@ function Form(props) {
   return (
     <div className="main mt-5">
       <div className="container">
-        <form onSubmit={prosesHandler}>
+        <form onSubmit={prosesHandler} className="form-client">
           {/* Informasi */}
           <Information getInformation={getInformation}/>
 
