@@ -1,6 +1,6 @@
 import React from "react";
 
-function AuthorizedFinance() {
+function AuthorizedFinance({data}) {
   return (
     <div className="financial-authorized-person">
       <table>
@@ -16,7 +16,7 @@ function AuthorizedFinance() {
               <p>Nama /</p> <p className="font-italic"> Name</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.nama}/>
             </td>
           </tr>
           <tr>
@@ -24,7 +24,7 @@ function AuthorizedFinance() {
               <p>Bagian /</p> <p className="font-italic">Departement</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.bagian}/>
             </td>
           </tr>
           <tr>
@@ -32,7 +32,7 @@ function AuthorizedFinance() {
               <p>Jabatan /</p> <p className="font-italic">Position</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.jabatan}/>
             </td>
           </tr>
           <tr>
@@ -40,7 +40,7 @@ function AuthorizedFinance() {
               <p>Telepone /</p> <p className="font-italic">Phone</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.telephone}/>
               <br />
               <p>Kode Area / </p> <p className="font-italic">Area Code</p>
               {" | "}
@@ -49,10 +49,10 @@ function AuthorizedFinance() {
           </tr>
           <tr>
             <td>
-              <p>Fax /</p> <p className="font-italic">Phone</p>
+              <p>Fax /</p> <p className="font-italic">Fax</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.fax}/>
               <br />
               <p>Kode Area / </p> <p className="font-italic">Area Code</p>
               {" | "}
@@ -64,7 +64,7 @@ function AuthorizedFinance() {
               <p>Handphone</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled />
             </td>
           </tr>
           <tr>
@@ -72,7 +72,7 @@ function AuthorizedFinance() {
               <p>Alamat Email /</p> <p className="font-italic">Email Address</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.email}/>
             </td>
           </tr>
         </tbody>

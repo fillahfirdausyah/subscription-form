@@ -1,6 +1,6 @@
 import React from "react";
 
-function BillingAddress() {
+function BillingAddress({data}) {
   return (
     <div className="billing-address">
       <table>
@@ -17,6 +17,8 @@ function BillingAddress() {
                 name=""
                 id=""
                 style={{ width: "90%", height: "90px" }}
+                disabled
+                value={data.alamat}
               ></textarea>
             </td>
           </tr>

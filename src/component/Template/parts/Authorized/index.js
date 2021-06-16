@@ -1,6 +1,6 @@
 import React from "react";
 
-function Authorized() {
+function Authorized({data}) {
   return (
     <div className="authorized-person new-page">
       <div className="section1">
@@ -23,7 +23,7 @@ function Authorized() {
               <p>Nama /</p> <p className="font-italic"> Name</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.nama}/>
             </td>
           </tr>
           <tr>
@@ -32,7 +32,7 @@ function Authorized() {
               <p className="font-italic">Place, Date of Birth</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={`${data.ttlTempat}, ${data.ttlTggl}`}/>
             </td>
           </tr>
           <tr>
@@ -40,7 +40,7 @@ function Authorized() {
               <p>Jabatan /</p> <p className="font-italic">Position</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.jabatan}/>
             </td>
           </tr>
           <tr>
@@ -48,7 +48,7 @@ function Authorized() {
               <p>Telepone /</p> <p className="font-italic">Phone</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.telephone}/>
               <br />
               <p>Kode Area / </p> <p className="font-italic">Area Code</p>
               {" | "}
@@ -75,7 +75,7 @@ function Authorized() {
               <p>Masa Berlaku /</p> <p className="font-italic">Valid Until</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.masaBerlaku}/>
             </td>
           </tr>
           <tr>
@@ -83,7 +83,7 @@ function Authorized() {
               <p>Alamat Email /</p> <p className="font-italic">Email Address</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.email}/>
             </td>
           </tr>
         </tbody>

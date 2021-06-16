@@ -56,25 +56,25 @@ function Template(props) {
               / Please tick in appropriate box
             </span>
             {/* Information */}
-            <Information data={x.data.information}/>
+            <Information data={x.data.information} />
             <div className="field">
               {/* TypeofOrder */}
-              <TypeofOrder data={x.data.typeofOrder}/>
+              <TypeofOrder data={x.data.typeofOrder} />
 
               {/* Informasi Perusahaan */}
-              <InformasiPerusahaan data={x.data.infoPerusahaan}/>
+              <InformasiPerusahaan data={x.data.infoPerusahaan} />
 
               {/* Authorized */}
-              <Authorized />
+              <Authorized data={x.data.authorized} />
 
               {/* Penanggung Jawab Keuangan */}
-              <AuthorizedFinance />
+              <AuthorizedFinance data={x.data.authorizedFinance} />
 
               {/* Billing Address */}
-              <BillingAddress />
+              <BillingAddress data={x.data.billingAddress}/>
 
               {/* Penanggung Jawab Teknis */}
-              <AuthorizedTechnical />
+              <AuthorizedTechnical data={x.data.authorizedTechnical}/>
 
               {/* Layanan Yang Diminta */}
               <ServiceOrder />

@@ -1,6 +1,6 @@
 import React from "react";
 
-function AuthorizedTechnical() {
+function AuthorizedTechnical({data}) {
   return (
     <div className="techinal-authorized-person new-page">
       <div className="section1">
@@ -23,7 +23,7 @@ function AuthorizedTechnical() {
               <p>Nama /</p> <p className="font-italic">Name</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.nama}/>
             </td>
           </tr>
           <tr>
@@ -31,7 +31,7 @@ function AuthorizedTechnical() {
               <p>Bagian /</p> <p className="font-italic">Departement</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.bagian}/>
             </td>
           </tr>
           <tr>
@@ -39,7 +39,7 @@ function AuthorizedTechnical() {
               <p>Jabatan /</p> <p className="font-italic">Position</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.jabatan}/>
             </td>
           </tr>
           <tr>
@@ -47,7 +47,7 @@ function AuthorizedTechnical() {
               <p>Telepone /</p> <p className="font-italic">Phone</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.telephone}/>
               <br />
               <p>Kode Area / </p> <p className="font-italic">Area Code</p>
               {" | "}
@@ -59,7 +59,7 @@ function AuthorizedTechnical() {
               <p>Handphone</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.handphone}/>
             </td>
           </tr>
           <tr>
@@ -67,7 +67,7 @@ function AuthorizedTechnical() {
               <p>Fax /</p> <p className="font-italic">Phone</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.fax} />
               <br />
               <p>Kode Area / </p> <p className="font-italic">Area Code</p>
               {" | "}
@@ -79,7 +79,7 @@ function AuthorizedTechnical() {
               <p>Alamat Email /</p> <p className="font-italic">Email Address</p>
             </td>
             <td>
-              <input type="text" />
+              <input type="text" disabled value={data.email}/>
             </td>
           </tr>
         </tbody>
