@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import CreateIcon from "@material-ui/icons/Create";
+import { useAuth } from "../../Context/AuthContext";
 import "./style.css";
 import axios from "axios";
 
 function MarketingPage() {
   const [isLoading, setisLoading] = useState(true);
   const [data, setData] = useState([]);
+
+  const history = useHistory();
+
+  const { currentUser, logout } = useAuth();
 
   useEffect(() => {
     setisLoading(true);
@@ -35,6 +40,14 @@ function MarketingPage() {
       });
   }, []);
 
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      await logout();
+      history.push("/login");
+    } catch {}
+  };
+
   if (isLoading) {
     return (
       <div>
@@ -45,8 +58,14 @@ function MarketingPage() {
 
   return (
     <div className="container marketing">
-      <header>
-        <h1>Daftar Subscirption Form</h1>
+      <header className="d-flex align-items-start justify-content-between">
+        <div className="user-info">
+          <h1>Daftar Subscirption Form</h1>
+          <p>Login as : {currentUser.email}</p>
+        </div>
+        <button className="btn btn-danger" onClick={handleLogout}>
+          <ExitToAppIcon / >Log Out
+        </button>
       </header>
       <div className="row">
         {data.map((x) => (
@@ -67,7 +86,10 @@ function MarketingPage() {
                     Alamat Situs : {x.data.infoPerusahaan.alamatSitus}
                   </li>
                 </ul>
-                <Link to={`/preview/${x.id}`} className="btn btn-primary preview-btn">
+                <Link
+                  to={`/preview/${x.id}`}
+                  className="btn btn-primary preview-btn"
+                >
                   <VisibilityIcon /> Preview
                 </Link>
                 <Link to={`/lengkapi/${x.id}`} className="btn btn-primary">

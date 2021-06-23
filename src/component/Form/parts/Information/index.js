@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 function Information({ getInformation }) {
-  const [no, setNo] = useState("");
+  const [no, setNo] = useState(0);
   const [data, setData] = useState({});
 
   let ts = Date.now();

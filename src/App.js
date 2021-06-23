@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import { DataProvider } from "./Context/DataContext";
 import { Container } from "react-bootstrap";
+import { AuthProvider } from "./Context/AuthContext";
+import PrivateRoute from "./component/PrivateRoute";
 
 // Component
 import PreviewPage from "./pages/PreviewPage";
@@ -11,6 +12,7 @@ import SuccessPage from "./pages/SuccessPage";
 import MarketingPage from "./pages/MarketingPage";
 import LengkapiPage from "./pages/LengkapiPage";
 import Login from "./component/Login";
+import SignUp from "./component/SignUp";
 
 function App() {
   const [layar, setLayar] = useState(window.innerWidth);
@@ -29,7 +31,7 @@ function App() {
   return (
     <div>
       {layar > 768 ? (
-        <DataProvider>
+        <AuthProvider>
           <Switch>
             <Route path="/preview/:id">
               <PreviewPage />
@@ -40,9 +42,7 @@ function App() {
             <Route path="/berhasil">
               <SuccessPage />
             </Route>
-            <Route path="/marketing">
-              <MarketingPage />
-            </Route>
+            <PrivateRoute path="/marketing" component={MarketingPage} />
             <Route path="/lengkapi/:id">
               <LengkapiPage />
             </Route>
@@ -51,13 +51,23 @@ function App() {
                 className="d-flex align-items-center justify-content-center"
                 style={{ minHeight: "100vh" }}
               >
-                <div className="w-100" style={{ maxWidth: '400px' }}>
+                <div className="w-100" style={{ maxWidth: "400px" }}>
                   <Login />
                 </div>
               </Container>
             </Route>
+            <Route path="/signup">
+              <Container
+                className="d-flex align-items-center justify-content-center"
+                style={{ minHeight: "100vh" }}
+              >
+                <div className="w-100" style={{ maxWidth: "400px" }}>
+                  <SignUp />
+                </div>
+              </Container>
+            </Route>
           </Switch>
-        </DataProvider>
+        </AuthProvider>
       ) : (
         <PhonePage />
       )}
