@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
 import { Card, Button, Form, Alert } from "react-bootstrap";
 import { useAuth } from "../../Context/AuthContext";
-import {Link, useHistory} from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom";
 
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
 
-  const history = useHistory()
+  const history = useHistory();
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,12 +22,20 @@ function Login() {
       setError("");
       setLoading(true);
       await login(email, password);
-      history.push('/marketing')
+      history.push("/marketing");
     } catch (err) {
       setError("gagal login");
     }
 
     setLoading(false);
+  };
+
+  const loginGoogle = async (e) => {
+    e.preventDefault();
+    try {
+      await loginWithGoogle()
+      history.push('/marketing')
+    } catch (err) {}
   };
 
   return (
@@ -48,10 +56,21 @@ function Login() {
             <Button disabled={loading} type="submit" className="w-100 mt-5">
               Login
             </Button>
+            <hr />
           </Form>
+          <Button
+            disabled={loading}
+            onClick={loginGoogle}
+            type="submit"
+            className="w-100 mt-2"
+          >
+            Login dengan Google
+          </Button>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">Belum punya Akun? <Link to="/signup">Buat Akun</Link></div>
+      <div className="w-100 text-center mt-2">
+        Belum punya Akun? <Link to="/signup">Buat Akun</Link>
+      </div>
     </>
   );
 }
