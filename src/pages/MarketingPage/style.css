@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.user-info {
+    text-align: left;
+    list-style: none;
+}
+
 .preview-btn {
     margin-right: 20px;
 }

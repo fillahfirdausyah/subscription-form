@@ -1,6 +1,7 @@
 import React from "react";
 
-function Filledby() {
+function Filledby(props) {
+  console.log(props.currentUser.displayName)
   return (
     <>
       <div class="card text-white bg-dark-custom mb-3 card-custom">
@@ -11,10 +12,12 @@ function Filledby() {
               Nama Marketing
             </label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               id="nama-perusahaan"
               name="biayaSetUp"
+              disabled
+              value={props.currentUser.displayName}
             />
           </div>
           <div class="mb-3">

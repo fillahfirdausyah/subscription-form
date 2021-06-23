@@ -61,10 +61,12 @@ function MarketingPage() {
       <header className="d-flex align-items-start justify-content-between">
         <div className="user-info">
           <h1>Daftar Subscirption Form</h1>
-          <p>Login as : {currentUser.email}</p>
+            <li>Login as : {currentUser.email}</li>
+            <li>Nama : {currentUser.displayName}</li>
         </div>
         <button className="btn btn-danger" onClick={handleLogout}>
-          <ExitToAppIcon / >Log Out
+          <ExitToAppIcon />
+          Log Out
         </button>
       </header>
       <div className="row">

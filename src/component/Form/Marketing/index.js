@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useAuth } from "../../../Context/AuthContext";
 
 // Component
 import SubscriptionFee from "../parts/SubscriptionFee";
@@ -7,6 +8,8 @@ import DocumentReq from "../parts/DocumentReq";
 
 function FormMarketing({ id }) {
   const [subscriptionFee, setSubscriptionFee] = useState({});
+
+  const {currentUser} = useAuth()
 
   const getSubscriptionFee = (data) => {
     setSubscriptionFee(data);
@@ -20,7 +23,7 @@ function FormMarketing({ id }) {
           <SubscriptionFee getSubscriptionFee={getSubscriptionFee} />
 
           {/* Diisi Oleh */}
-          <Filledby />
+          <Filledby currentUser={currentUser}/>
 
           {/* Kelengkapan Dokumens */}
           <DocumentReq />
