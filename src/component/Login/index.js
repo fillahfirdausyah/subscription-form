@@ -35,7 +35,9 @@ function Login() {
     try {
       await loginWithGoogle()
       history.push('/marketing')
-    } catch (err) {}
+    } catch (err) {
+      setError(err)
+    }
   };
 
   return (
