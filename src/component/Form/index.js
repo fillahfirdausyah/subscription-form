@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from "react";
 import DoneIcon from "@material-ui/icons/Done";
-import Logo from "../../assets/BuanaLintas.png";
 import "./style.css";
 // Parts Component
 import Information from "./parts/Information";
@@ -12,13 +11,11 @@ import BillingAddress from "./parts/BillingAddress";
 import AuthorizedTechnical from "./parts/AuthorizedTechnical";
 import ServiceOrder from "./parts/ServicesOrder";
 import InstallationAddres from "./parts/InstallationAddress";
-import Signs from './parts/Signs'
+import Signs from "./parts/Signs";
 
 function Form(props) {
-  // const [data, setData] = useState("");
-
   //
-  const [information, setInformation] = useState({})
+  const [information, setInformation] = useState({});
   const [typeofOrder, setTypeofOrder] = useState({});
   const [infoPerusahaan, setInfoPerusahaan] = useState({});
   const [authorized, setAuthorized] = useState({});
@@ -27,11 +24,12 @@ function Form(props) {
   const [authorizedTechnical, setAuthorizedTechnical] = useState({});
   const [serviceOrder, setServiceOrder] = useState({});
   const [installationAddress, setInstallationAddress] = useState({});
-  const [client, setClient] = useState({})
+  const [client, setClient] = useState({});
 
   const getInformation = (data) => {
-    setInformation(data)
-  }
+    setInformation(data);
+    console.log(data);
+  };
 
   const getTypeofOrder = (data) => {
     // console.log(data)
@@ -70,15 +68,14 @@ function Form(props) {
   };
 
   const getPtClient = (data) => {
-    setClient(data)
-  }
+    setClient(data);
+  };
 
   const prosesHandler = (e) => {
     e.preventDefault();
 
     // setData(infoPerusahaan)
     const data = {
-      id: '',
       information,
       typeofOrder,
       infoPerusahaan,
@@ -88,7 +85,7 @@ function Form(props) {
       authorizedTechnical,
       serviceOrder,
       installationAddress,
-      client
+      client,
     };
 
     props.postData(data);
@@ -99,34 +96,36 @@ function Form(props) {
       <div className="container">
         <form onSubmit={prosesHandler} className="form-client">
           {/* Informasi */}
-          <Information getInformation={getInformation}/>
+          <Information getInformation={getInformation} />
 
           {/* Jenis Permintaan */}
-          <TypeofOrder getTypeofOrder={getTypeofOrder}/>
+          <TypeofOrder getTypeofOrder={getTypeofOrder} />
 
           {/* Informasi Perusahaan Pelanggan */}
           <InformasiPerusahaan getInfoPerushaan={getInfoPerushaan} />
 
           {/* Penanggung Jawab Perusahaan */}
-          <Authorized getAuthorized={getAuthorized}/>
+          <Authorized getAuthorized={getAuthorized} />
 
           {/* Penanggung Jawab Keuangan */}
-          <AuthorizedFinance getAuthorizedFinance={getAuthorizedFinance}/>
+          <AuthorizedFinance getAuthorizedFinance={getAuthorizedFinance} />
 
           {/* Alamat Penagihan */}
           <BillingAddress getBillingAddress={getBillingAddress} />
 
           {/* Penanggung Jawab Teknis */}
-          <AuthorizedTechnical getAuthorizedTechnical={getAuthorizedTechnical}/>
+          <AuthorizedTechnical
+            getAuthorizedTechnical={getAuthorizedTechnical}
+          />
 
           {/* Layanan yang diminta */}
-          <ServiceOrder getServiceOrder={getServiceOrder}/>
+          <ServiceOrder getServiceOrder={getServiceOrder} />
 
           {/* Alamat Instalasi */}
-          <InstallationAddres getInstallationAddress={getInstallationAddress}/>
+          <InstallationAddres getInstallationAddress={getInstallationAddress} />
 
           {/* Tanda Tangan */}
-          <Signs getPtClient={getPtClient}/>
+          <Signs getPtClient={getPtClient} />
 
           <button type="submit" className="btn-proses">
             <DoneIcon />

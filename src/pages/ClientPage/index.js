@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import VisibilityIcon from "@material-ui/icons/Visibility";
@@ -6,11 +6,20 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import CreateIcon from "@material-ui/icons/Create";
 import { useAuth } from "../../Context/AuthContext";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import axios from "axios";
 
 function ClientPage() {
   const { currentUser, logout } = useAuth();
 
-  const history = useHistory()
+  const history = useHistory();
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data.json"
+      )
+      .then((res) => console.log(res.data));
+  }, []);
 
   const handleLogout = async (e) => {
     e.preventDefault();

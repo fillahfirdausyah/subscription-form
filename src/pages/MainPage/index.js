@@ -2,23 +2,18 @@ import axios from "axios";
 import { React } from "react";
 import { useHistory } from "react-router-dom";
 import Form from "../../component/Form";
-import Navbar from "../../component/Navbar";
+import { database } from "../../firebase";
 import "./style.css";
 
 function MainPage() {
   const history = useHistory();
 
-  const postHandler = (data) => {
-    axios
-      .post(
-        "https://subsform-buana-default-rtdb.asia-southeast1.firebasedatabase.app/data.json",
-        {
-          data,
-        }
-      )
-      .then(() => {
-        history.replace("/berhasil");
-      });
+  const postHandler = async (data) => {
+    const hasil = await database.ref("data/" + data.id).push({
+      data,
+    });
+
+    console.log(hasil.key);
   };
 
   return (

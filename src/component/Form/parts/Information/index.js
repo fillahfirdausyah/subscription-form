@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 function Information({ getInformation }) {
-  const [no, setNo] = useState(0);
+  let [no, setNo] = useState(0);
   const [data, setData] = useState({});
 
   let ts = Date.now();
@@ -46,7 +46,7 @@ function Information({ getInformation }) {
   const fpb = `/FPB/205/${convertRoman(month)}/${year}`;
 
   const hasil = `${info1}00${no + 1}${fpb}`;
-
+  
   useEffect(() => {
     axios
       .get(
