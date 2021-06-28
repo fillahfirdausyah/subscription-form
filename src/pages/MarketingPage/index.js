@@ -44,7 +44,7 @@ function MarketingPage() {
     e.preventDefault();
     try {
       await logout();
-      history.push("/login");
+      history.push("/loginmarketing");
     } catch {}
   };
 
@@ -70,8 +70,8 @@ function MarketingPage() {
         </button>
       </header>
       <div className="row">
-        {data.map((x) => (
-          <div className="col-4">
+        {data.map((x, index) => (
+          <div className="col-4" data-aos="fade-up" data-aos-duration="900">
             <div class="card card-code bg-dark-custom">
               <div class="card-body">
                 <h5 class="card-title">

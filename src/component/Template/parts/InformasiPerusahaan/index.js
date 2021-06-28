@@ -17,7 +17,7 @@ function InformasiPerusahaan({data}) {
               <p className="font-italic">Company Name</p>
             </td>
             <td>
-              <input type="text" value={data.namaPerusahaan} disabled/>
+              { data.namaPerusahaan && <input type="text" value={data.namaPerusahaan} disabled/>}
             </td>
           </tr>
           <tr>

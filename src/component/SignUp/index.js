@@ -38,7 +38,7 @@ function SignUp() {
 
   return (
     <>
-      <Card className="bg-dark-custom">
+      <Card className="bg-dark-custom" data-aos="fade-up" data-aos-duration="500">
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}

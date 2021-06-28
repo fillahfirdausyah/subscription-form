@@ -3,13 +3,13 @@ import { Card, Button, Form, Alert } from "react-bootstrap";
 import { useAuth } from "../../Context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
-function Login() {
+function ClientLoginPage() {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const { login, loginWithGoogle } = useAuth();
 
   const history = useHistory();
 
-  const { login, loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +22,7 @@ function Login() {
       setError("");
       setLoading(true);
       await login(email, password);
-      history.push("/marketing");
+      history.push("/");
     } catch (err) {
       setError("gagal login");
     }
@@ -33,20 +33,16 @@ function Login() {
   const loginGoogle = async (e) => {
     e.preventDefault();
     try {
-      await loginWithGoogle();
-      history.push("/marketing");
+      await loginWithGoogle()
+      history.push('/')
     } catch (err) {
-      setError(err);
+      setError(err)
     }
   };
 
   return (
     <>
-      <Card
-        className="bg-dark-custom"
-        data-aos="fade-up"
-        data-aos-duration="500"
-      >
+      <Card className="bg-dark-custom" data-aos="fade-up" data-aos-duration="500">
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -81,4 +77,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ClientLoginPage;

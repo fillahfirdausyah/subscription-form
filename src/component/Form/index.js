@@ -12,7 +12,6 @@ import BillingAddress from "./parts/BillingAddress";
 import AuthorizedTechnical from "./parts/AuthorizedTechnical";
 import ServiceOrder from "./parts/ServicesOrder";
 import InstallationAddres from "./parts/InstallationAddress";
-import SubscriptionFee from './parts/SubscriptionFee'
 import Signs from './parts/Signs'
 
 function Form(props) {

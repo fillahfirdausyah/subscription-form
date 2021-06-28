@@ -3,6 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./Context/AuthContext";
 import PrivateRoute from "./component/PrivateRoute";
+import PrivateRouteClient from "./component/PrivateRouteClient";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Component
 import PreviewPage from "./pages/PreviewPage";
@@ -11,6 +14,8 @@ import PhonePage from "./pages/PhonePage";
 import SuccessPage from "./pages/SuccessPage";
 import MarketingPage from "./pages/MarketingPage";
 import LengkapiPage from "./pages/LengkapiPage";
+import ClientLoginPage from "./pages/ClientLoginPage";
+import ClientPage from "./pages/ClientPage";
 import Login from "./component/Login";
 import SignUp from "./component/SignUp";
 
@@ -20,6 +25,11 @@ function App() {
   const updateLayar = () => {
     setLayar(window.innerWidth);
   };
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  });
 
   useEffect(() => {
     window.addEventListener("resize", updateLayar);
@@ -36,9 +46,8 @@ function App() {
             <Route path="/preview/:id">
               <PreviewPage />
             </Route>
-            <Route exact path="/">
-              <MainPage />
-            </Route>
+            <PrivateRouteClient exact path="/form" component={MainPage} />
+            <PrivateRouteClient exact path="/" component={ClientPage} />
             <Route path="/berhasil">
               <SuccessPage />
             </Route>
@@ -47,6 +56,16 @@ function App() {
               <LengkapiPage />
             </Route>
             <Route path="/login">
+              <Container
+                className="d-flex align-items-center justify-content-center"
+                style={{ minHeight: "100vh" }}
+              >
+                <div className="w-100" style={{ maxWidth: "400px" }}>
+                  <ClientLoginPage />
+                </div>
+              </Container>
+            </Route>
+            <Route path="/loginmarketing">
               <Container
                 className="d-flex align-items-center justify-content-center"
                 style={{ minHeight: "100vh" }}
